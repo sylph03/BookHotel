@@ -1,0 +1,73 @@
+.overView-box {
+    padding-bottom: 3rem;
+}
+
+.overView-box h1 {
+    font-size: 3.5rem;
+    color: #252525;
+    font-weight: 400;
+    position: relative;
+    padding-bottom: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem
+}
+
+.overView-box h1:before {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 2px;
+    background: #b99470;
+    margin: 0 auto;
+    bottom: 0;
+    position: absolute;
+    right: 0;
+    left: 0;
+}
+
+.overView-content-box.transform-active .overView-content {
+    max-height: inherit;
+}
+
+.overView-content-box .overView-content {
+    max-height: 300px;
+    overflow: hidden;
+}
+
+.overView-content p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-family: system-ui, -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #181b20;
+}
+
+.overView-content-load {
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.overView-content-load button {
+    border: 1px solid #B99472;
+    padding: 0.8rem 3rem;
+    font-size: 16px;
+    color: #B99472;
+    font-weight: 600;
+    display: inline-block;
+    border-radius: 0.25rem;
+    transition: all 0.25s ease;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+.overView-content-load button:hover {
+    color: white;
+    background: #B99472;
+}
+
+.overView-content-load i {
+    font-size: 15px;
+    margin-left: 0.3rem;
+}

@@ -1,0 +1,78 @@
+.breadCrumbs-section-bg {
+    background-image: url(https://khachsan02.web4s.com.vn/templates/fashion03/assets/media/background/breadcrumb.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 22vw;
+    position: relative;
+    margin-bottom: 3rem;
+}
+
+
+.breadCrumbs-section-bg:before {
+    content: '';
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    background-color: black;
+    opacity: 0.3;
+    transition: background 0.3s, border-radius 0.3s, opacity 0.3s;
+}
+
+@media (max-width: 767px) {
+    .breadCrumbs-section-bg {
+        height: 20vh;
+    }
+}
+
+.breadCrumbs-section {
+    display: flex;
+    flex: 1 1 auto;
+    flex-wrap: wrap;
+    align-items: center;
+    line-height: 2.4rem;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 1.5rem;
+    left: 1.5rem;
+    justify-content: center;
+    font-size: 1.6rem;
+    margin-top: 1rem
+}
+
+.breadCrumbs-section a {
+    margin-right: 0.7rem;
+    line-height: 2.4rem;
+    color: white;
+    text-decoration: none;
+    background-color: transparent;
+    transition: all 0.25s ease;
+}
+
+.breadCrumbs-section a:hover {
+    color: #181b20;
+}
+.breadCrumbs-section a:hover i {
+    color: #181b20;
+}
+.breadCrumbs-section a:last-child:hover {
+    color: white;
+}
+
+.breadCrumbs-section i {
+    margin-left: 0.6rem;
+    font-size: 1.1rem;
+    font-weight: 900;
+    line-height: 2.4rem;
+    color: white;
+    transition: all 0.25s ease;
+}
+
+@media (min-width: 992px) {
+    .mb-lg-6 {
+        margin-bottom: 8rem;
+    }
+}

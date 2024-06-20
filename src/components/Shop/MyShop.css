@@ -1,0 +1,133 @@
+.view-sort-box {
+    padding: 0 7.5px;
+}
+.view-sort {
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    display: flex;
+    background-color: #f8f9fa;
+}
+
+.page-section span {
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #181b20;
+}
+
+.page-section .page-title {
+    font-weight: 600;
+    color: #181b20;
+    line-height: 1.5;
+    font-size: 1.5rem;
+}
+
+.page-variation {
+    padding: 0 0.7rem;
+    color: #181b20;
+    transition: all 0.25s ease;
+    text-decoration: none;
+    background-color: transparent;
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1.5;
+    cursor: pointer;
+}
+
+.page-variation.active {
+    color: #b99470; 
+    font-weight: 600;
+}
+
+.page-variation:hover {
+    color: #b99470;
+}
+
+
+.dropdown {
+    position: relative;
+}
+
+.orderby-section .orderby-title {
+    display: block;
+    padding-right: 2.5rem;
+    position: relative;
+    cursor: pointer;
+    color: #181b20;
+    font-weight: 600;
+    line-height: 1.5;
+    font-size: 1.5rem;
+}
+
+.orderby-title i {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transition: all 0.15s ease-in-out;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.orderby-section .dropdown-menus {
+    margin: 0;
+    padding: 0;
+}
+
+.dropdown-menus-right {
+    right: 0;
+    left: auto;
+}
+
+.dropdown-menus {
+    position: absolute;
+    top: 100%;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 10rem;
+    font-size: 1.4rem;
+    color: #212529;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 0.25rem;
+    transition: display 0.25s ease; 
+}
+
+.dropdown-menus.show {
+    display: block;
+}
+
+.orderby-section .dropdown-itemz {
+    padding-top: 0;
+    padding-bottom: 0;
+    line-height: 4rem;
+    height: 4rem;
+}
+
+.dropdown-itemz {
+    display: block;
+    width: 100%;
+    padding: 0.25rem 1.5rem;
+    clear: both;
+    font-weight: 400;
+    color: #212529;
+    text-align: inherit;
+    white-space: nowrap;
+    background-color: transparent;
+    border: 0;
+    transition: all 0.25s ease;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.dropdown-itemz:hover {
+    color: #16181b;
+    text-decoration: none;
+    background-color: #e9ecef;
+}
+

@@ -1,0 +1,277 @@
+.header {
+    box-shadow: 0 5px 10px 1px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.header-top {
+    border-bottom: 1px solid #dee2e6;
+}
+
+@media (min-width: 767px) {
+    .header .container {
+        max-width: calc(100% - 6rem);
+    }
+}
+
+.header-top>.container>.row>div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-bottom.fixed .header-bottom-right-menu > ul > li > a {
+    line-height: 6.5rem;
+}
+
+.header-top-left {
+    float: right;
+}
+
+.header-top-left-box {
+    align-items: center;
+    display: flex;   
+}
+
+.header-top-left-item {
+    align-items: center;
+    display: flex;
+}
+
+.header-top-left-item i {
+    background: #b99470;
+    width: 28px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    border-radius: 50%;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.header-top-left-item a {
+    color: #181b20;
+    margin-left: 1rem;
+    transition: all 0.25s ease;
+    text-decoration: none;
+    background-color: transparent;
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+@media (min-width: 992px) {
+    .header-top-right {
+        float: right;
+    }
+}
+
+.header-top-right-box {
+    align-items: center;
+    justify-content: flex-end;
+    display: flex;
+}
+
+.header-top-right-user {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+.header-top-right-user i {
+    padding-right: 1rem;
+}
+
+.header-top-right-user a {
+    transition: all 0.25s ease;
+    text-decoration: none;
+    background-color: transparent;
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #181b20;
+}
+
+.btn-booking a {
+    cursor: pointer;
+    border: 1px solid #b99470;
+    background-color: #b99470;
+    color: white;
+    font-weight: 500;
+    text-transform: capitalize;
+    padding: 1rem 3rem;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    font-size: 1.4rem;
+    line-height: 1.5;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    text-decoration: none;
+}
+
+.btn-booking a:hover {
+    opacity: 0.8;
+}
+
+.btn-booking i {
+    padding-right: 0.5rem
+}
+
+/*  */
+
+.header-bottom {
+    position: relative;
+    background-color: #fff;
+}
+
+.header-bottom>.container>.row>div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: static;
+}
+
+.header-bottom-left-logo a {
+    transition: all 0.25s ease;
+    color: #007bff;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+.header-bottom-left-logo img {
+    height: 4rem;
+    max-width: 100%;
+    vertical-align: middle;
+    border-style: none;
+}
+
+.header-bottom.fixed .header-bottom-left-logo img {
+    height: 3rem;
+}
+
+.header-bottom-right-menu ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.header-bottom-right-menu > ul > li {
+    display: inline-block;
+    margin-left: 2.5rem;
+    margin-right: 2.5rem;
+}
+
+.header-bottom-right-menu a {
+    height: 9.5rem;
+    line-height: 9.5rem;
+    color: #181b20;
+    text-align: center;
+    font-size: 1.8rem;
+    transition: all 0.25s ease;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+.header-bottom-right-menu .active {
+    color: #8a8989 !important;
+}
+
+.header-bottom-right-menu > ul > li:hover > a {
+    color: #8a8989;
+}
+
+.header-bottom-right-menu > ul > li.has-child > a i {
+    display: inline-block;
+    font-size: 1.2rem;
+    margin-left: 0.3rem;
+    color: #8a8989;
+}
+
+.header-bottom-right-menu .entry-menu {
+    top: 100%;
+    z-index: 12;
+    padding: 2rem 2.5rem;
+    position: absolute;
+    background-color: #fff;
+    border-top: 0.1rem solid #e3e3e3;
+}
+
+.header-bottom-right-menu > ul > li > .entry-menu {
+    position: absolute;
+    opacity: 0;
+    filter: opacity(0);
+    visibility: hidden;
+    -webkit-transition: all 0.05s ease;
+    transition: all 0.05s ease;
+    z-index: 17;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
+}
+
+.header-bottom-right-menu .entry-menu.dropdown {
+    min-width: 25rem;
+    left: 0;
+    padding: 1rem 1.5rem;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
+}
+
+.header-bottom-right-menu .menu-link {
+    color: #181b20;
+    padding: 0.7rem 3.5rem 0.7rem 0;
+    display: block;
+
+    height: initial;
+    line-height: initial;
+    text-align: initial;
+    font-size: initial;
+    transition: all 0.25s ease;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+.header-bottom-right-menu .menu-link:hover {
+    color: #b99470;
+}
+
+.header-bottom-right-menu > ul > li:hover > .entry-menu {
+    opacity: 1;
+    filter: opacity(1);
+    visibility: visible;
+}
+
+.header-bottom-right-menu .entry-menu.dropdown li {
+    border-bottom: 1px solid #e1e1e1;
+}
+
+.header-bottom-right-menu .entry-menu.dropdown li:last-child {
+    border-bottom: none;
+}
+
+.header-bottom-right-menu > ul > li > .entry-menu li {
+    text-align: left;
+}
+
+.header-bottom-right-menu .entry-menu li {
+    position: relative;
+}
+
+.fixed {
+    z-index: 999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #ffffff;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+    animation: stuckMoveDown .6s;
+}
+
+@keyframes stuckMoveDown {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+

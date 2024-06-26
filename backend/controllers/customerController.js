@@ -2,10 +2,10 @@
 const userModel = require('../models/customerModel');
 
 // Xử lý yêu cầu API để lấy thông tin khách hàng
-const getCustomerById = async (req, res) => {
+const getCustomerByUserName = async (req, res) => {
   try {
-    const customerId = req.params.id;
-    const customer = await userModel.getCustomerById(customerId);
+    const customerUserName = req.params.userName;
+    const customer = await userModel.getCustomerByUserName(customerUserName);
     if (customer) {
       res.json(customer);
     } else {
@@ -21,6 +21,24 @@ const getCustomerById = async (req, res) => {
 const addCustomer = async (req, res) => {
   try {
     const newCustomer = req.body;
+    
+    // Kiểm tra xem email, phone và user_name đã tồn tại chưa
+    const emailAlreadyExists = await userModel.emailExists(newCustomer.email);
+    
+    const userNameAlreadyExists = await userModel.userNameExists(newCustomer.user_name);
+    if (userNameAlreadyExists) {
+      return res.status(400).json({ message: 'Username already exists' });
+    }
+
+    if (emailAlreadyExists) {
+      return res.status(400).json({ message: 'Email already exists' });
+    }
+
+    const phoneAlreadyExists = await userModel.phoneExists(newCustomer.phone);
+    if (phoneAlreadyExists) {
+      return res.status(400).json({ message: 'Phone number already exists' });
+    }
+
     const customerId = await userModel.addCustomer(newCustomer);
     res.status(201).json({ customerId });
   } catch (error) {
@@ -29,21 +47,8 @@ const addCustomer = async (req, res) => {
   }
 };
 
-// Xử lý yêu cầu API để cập nhật thông tin khách hàng
-const updateCustomer = async (req, res) => {
-  try {
-    const customerId = req.params.id;
-    const updatedCustomer = req.body;
-    await userModel.updateCustomer(customerId, updatedCustomer);
-    res.status(200).json({ message: 'Customer updated successfully' });
-  } catch (error) {
-    console.error('Error updating customer:', error);
-    res.status(500).json({ message: 'Internal server error' });
-  }
-};
 
 module.exports = {
-  getCustomerById,
-  addCustomer,
-  updateCustomer,
+  getCustomerByUserName,
+  addCustomer
 };

@@ -12,8 +12,8 @@ import './MyHomeMain.css';
 const MyHomeMain = () => {
     return (
         <div className='homeMain'>
-            <Row className='no-gutter'>
-                <Col className='col-md-12 col-12'>
+            <Row className='mx-0 no-gutter'>
+                <Col className='px-0 col-md-12 col-12'>
                     <div className='homeMain-box'>
                         <Swiper
                             modules={[Navigation, Pagination]}
@@ -35,7 +35,7 @@ const MyHomeMain = () => {
                                     <div className='homeMain-item-content'>
                                         <h2>Trải nghiệm khách sạn sang trọng</h2>
                                         <p>Khách sạn gồm 311 phòng được chia thành các hạng phòng từ tiêu chuẩn đến cao cấp. Mang cảm hứng từ hình ảnh hoa sen - biểu tượng văn hóa Việt Nam, với quy mô 36 tầng, khách sạn đã trở thành công trình ấn tượng ở địa phương.</p>
-                                        <a className='btn' href='#'>Xem chi tiết</a>
+                                        <a href='#'>Xem chi tiết</a>
                                     </div>
                                 </div>
                             </SwiperSlide>

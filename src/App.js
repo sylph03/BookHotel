@@ -4,6 +4,7 @@ import Home from './screens/Home/Home';
 import Rooms from './screens/Rooms/Rooms';
 import RoomDetail from './screens/RoomDetail/RoomDetail';
 import Register from './screens/Login/Register/Register'
+import LogIn from './screens/Login/LogIn/LogIn'
 
 import './App.css';
 
@@ -12,10 +13,11 @@ function App() {
     <Router>
       <div className="App">
         <Routes>
-          <Route path="/register" element={<Register/>} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<LogIn />} />
           <Route path="/" element={<Home />} />
           <Route path="/rooms" element={<Rooms />} />
-          <Route path="/rooms/:id" element={<RoomDetail/>} />
+          <Route path="/rooms/:id" element={<RoomDetail />} />
           {/* Các Route khác tại đây */}
         </Routes>
       </div>

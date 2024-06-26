@@ -2,12 +2,29 @@ import React, { useEffect, useState } from "react";
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { Container, Row, Col } from "react-bootstrap";
+import MyStar from '../Star/MyStar'
 
 import './ProductDetail.css'
 
 const ProductDetail = (props) => {
 
     const [count, setCount] = useState(1);
+    const [ratingData, setRatingData] = useState({
+        ratingCount: 0,
+        ratingDistribution: {},
+        averageRating: 0,
+        customerRatings: []
+    });
+
+    useEffect(()=>{
+        axios.get(`http://localhost:3000/api/rooms/${props.room.room_id}/ratings`)
+        .then(response => {
+            setRatingData(response.data);
+        })
+        .catch(error => {
+            console.error('Đã xảy ra lỗi khi tìm nạp dữ liệu!', error);
+        })
+    }, [props.room.room_id]);
     
     const countAdd = () => {
         setCount(count + 1);
@@ -53,15 +70,11 @@ const ProductDetail = (props) => {
                                     <div className="product-content-detail">
                                         <h1 className="product-detail-title mb-3">{props.room.room_name}</h1>
                                         <div className="product-rating">
-                                            <div className="star-rating mr-1">
-                                                <i className="fa-solid fa-star"></i>
-                                                <i className="fa-solid fa-star"></i>
-                                                <i className="fa-solid fa-star"></i>
-                                                <i className="fa-solid fa-star"></i>
-                                                <i className="fa-solid fa-star"></i>
+                                            <div className="star-rating me-1">
+                                                    <MyStar readonly={true} rating={Math.floor(ratingData.averageRating)}/>
                                             </div>
-                                            <span className="count mr-1">({1} Đánh giá)</span>
-                                            <div className="review-link ml-3"></div>
+                                            <span className="count">{`${ratingData.averageRating? `(${ratingData.ratingCount} Đánh giá)` : ''}`}</span>
+                                            <div className="review-link ms-3"></div>
                                         </div>
                                         <div className="price mb-4">
                                             <span className="price-amount">Giá: {props.room.price}</span>

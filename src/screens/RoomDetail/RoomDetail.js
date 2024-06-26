@@ -7,6 +7,7 @@ import MyFooter from "../../components/Footer/MyFooter";
 import MyCopyright from "../../components/Copyright/MyCopyright";
 import ProductDetail from "../../components/ProductDetail/ProductDetail";
 import MyRooms from "../../components/Rooms/MyRooms"
+import MyRating from '../../components/Rating/MyRating';
 
 const RoomDetail = () => {
 
@@ -28,8 +29,9 @@ const RoomDetail = () => {
     return (
         <div>
             <MyHeader/>
-            <MyBreadCrumbs room={room}/>
+            <MyBreadCrumbs room={room} />
             <ProductDetail room={room}/>
+            <MyRating room={room}/>
             <MyRooms room={otherRooms} title={"Các phòng khác"} bg_white={"bg-white"} pt_0={"pt-0"}/>
             <MyFooter/>
             <MyCopyright/>

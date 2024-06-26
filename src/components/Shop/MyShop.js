@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import axios from 'axios';
 import { Container, Row, Col } from "react-bootstrap";
 import MyProducts from '../../components/Products/MyProducts';
@@ -9,6 +9,7 @@ const MyShop = () => {
     const [sortBy, setSortBy] = useState(''); // State để lưu trữ thông tin sắp xếp
     const [itemsPerPage, setItemsPerPage] = useState(12); // State để lưu trữ số lượng phần tử trên mỗi trang
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const dropdownRef = useRef(null);
 
     useEffect(() => {
         fetchRooms();
@@ -37,6 +38,20 @@ const MyShop = () => {
         setItemsPerPage(numItems); // Cập nhật số lượng phần tử trên mỗi trang
     };
 
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+                setIsDropdownOpen(false);
+            }
+        };
+
+        document.addEventListener('click', handleClickOutside);
+
+        return () => {
+            document.removeEventListener('click', handleClickOutside);
+        };
+    }, []);
+
     return (
         <div className="shop">
             <Container>
@@ -59,7 +74,7 @@ const MyShop = () => {
                                     </span>
                                 </div>
                                 <div className="orderby-section">
-                                    <div className="dropdown">
+                                    <div className="dropdown" ref={dropdownRef}>
                                         <span className="orderby-title" onClick={toggleDropdown}>
                                             Sắp xếp
                                             <i className={`fa-solid ${isDropdownOpen ? 'fa-chevron-up' : 'fa-chevron-down'}`}></i>

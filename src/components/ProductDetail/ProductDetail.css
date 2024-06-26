@@ -256,3 +256,9 @@ label {
     line-height: 1.5;
     color: #181b20;
 }
+
+@media (max-width: 1000px) {
+    .product-detail-footer .nav li a {
+        padding: 0 1rem 1rem;
+    }
+}

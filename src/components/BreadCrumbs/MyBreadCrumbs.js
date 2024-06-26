@@ -12,6 +12,8 @@ const MyBreadCrumbs = (props) => {
     const pathLabels = {
         '/': 'Trang chủ',
         '/rooms': 'Phòng',
+        '/login': 'Đăng nhập',
+        '/register': 'Đăng ký tài khoản',
         ...(props.room && { [`/rooms/${props.room.room_id}`]: props.room.room_name })
         // Thêm các đường dẫn và nhãn tương ứng khác nếu cần
     };
@@ -22,7 +24,7 @@ const MyBreadCrumbs = (props) => {
             <Row className="mx-0">
                 <Col className="px-0 col-md-12 col-12">
                     <div className="breadCrumbs-box">
-                        <div className="breadCrumbs-section-bg mb-lg-6">
+                        <div className={`breadCrumbs-section-bg ${props.mb ? props.mb : "mb-lg-6"}`}>
                             <Container>
                                 <div className="breadCrumbs-section">
                                     <a href="/">

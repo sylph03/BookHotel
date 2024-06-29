@@ -142,7 +142,6 @@ const MyRating = (props) => {
         setSelectedFiles(updatedFiles);
     };
 
-    console.log(selectedFiles);
 
     // Tính phần trăm cho từng rating từ 1 đến 5
     const getRatingPercentage = (rating) => {

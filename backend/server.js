@@ -6,6 +6,7 @@ const path = require('path');
 const roomRoutes = require('./routes/roomRoutes');
 const customerRoutes = require('./routes/customerRoutes'); // Import customer routes
 const ratingRoutes = require('./routes/ratingRoutes'); 
+const cartRoutes = require('./routes/cartRoutes')
 
 // Load environment variables from .env file
 dotenv.config();
@@ -24,6 +25,7 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use('/api', roomRoutes);
 app.use('/api', customerRoutes); // Use customer routes
 app.use('/api', ratingRoutes);
+app.use('/api', cartRoutes);
 
 // Start the server
 app.listen(port, () => {

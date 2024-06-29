@@ -1,13 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { Container, Row, Col } from "react-bootstrap";
 import MyStar from '../Star/MyStar'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-import './ProductDetail.css'
+
+import './ProductDetail.css';
 
 const ProductDetail = (props) => {
 
+    const [toggleBooking, setToggleBooking] = useState(false);
+    const sidebarRef = useRef(null);
+    const [customerData, setCustomerData] = useState(null)
+    const [cartData, setCartData] = useState([])
     const [count, setCount] = useState(1);
     const [ratingData, setRatingData] = useState({
         ratingCount: 0,
@@ -15,6 +22,27 @@ const ProductDetail = (props) => {
         averageRating: 0,
         customerRatings: []
     });
+
+    useEffect(() => {
+        // Lấy thông tin người dùng từ sessionStorage khi component được tải lần đầu
+        const customerUserData = localStorage.getItem('customerUser');
+        if (customerUserData) {
+            setCustomerData(JSON.parse(customerUserData));
+        }
+    }, []);
+    
+    useEffect(() => {
+        // Kiểm tra nếu customerData đã được thiết lập và có customer_id
+        if (customerData && customerData.customer_id) {
+            axios.get(`http://localhost:3000/api/carts/${customerData.customer_id}`)
+                .then(response => {
+                    setCartData(response.data);
+                })
+                .catch(error => {
+                    console.error('Đã có lỗi xảy ra!', error);
+                });
+        }
+    }, [customerData]);
 
     useEffect(()=>{
         axios.get(`http://localhost:3000/api/rooms/${props.room.room_id}/ratings`)
@@ -42,6 +70,122 @@ const ProductDetail = (props) => {
             setCount(number);
         }
     };
+
+
+    const handleCard = () => {
+
+        if (!customerData || !customerData.customer_id || toggleBooking === true) {
+            console.error('Customer data is not available');
+            return;
+        }
+
+        const cartInfo = {
+            customer_id: customerData.customer_id,
+            room_id: props.room.room_id,
+            quantity: count
+        };
+    
+        axios.post('http://localhost:3000/api/carts', cartInfo)
+            .then(response => {
+                console.log('Đã thêm vào giỏ hàng', response.data);
+                setToggleBooking(!toggleBooking);
+                document.body.classList.add('dark-overlay');
+                // Cập nhật giỏ hàng sau khi thêm
+                return axios.get(`http://localhost:3000/api/carts/${customerData.customer_id}`);
+            })
+            .then(response => {
+                setCartData(response.data);
+            })
+            .catch(error => {
+                console.log("Lỗi thêm vào giỏ hàng: ", error);
+                if (error.response && error.response.status === 400) {
+                    const errorMessage = error.response.data.error;
+                    if (errorMessage === 'Item already exists in the cart') {
+                        const existingItem = cartData.find(item => item.room_id === props.room.room_id);
+                        if (existingItem) {
+                            const updateCartData = {
+                                quantity: (existingItem.quantity + count)
+                            }
+                            
+                            axios.put(`http://localhost:3000/api/carts/${customerData.customer_id}/${props.room.room_id}`, updateCartData)
+                                .then(response => {
+                                    console.log("Cập nhật giỏ hàng thành công!", response.data);
+                                    // Cập nhật giỏ hàng sau khi cập nhật
+                                    return axios.get(`http://localhost:3000/api/carts/${customerData.customer_id}`);
+                                })
+                                .then(response => {
+                                    setCartData(response.data);
+                                })
+                                .catch(error => {
+                                    console.log("Lỗi cập nhật giỏ hàng!", error);
+                                });
+                        } else {
+                            console.error('Existing item not found in cart data');
+                        }
+                    }
+                }
+                setToggleBooking(!toggleBooking);
+                document.body.classList.add('dark-overlay');
+            });
+    };
+
+    const handleDelete = (roomId) => {
+        const confirmDelete = () => {
+            axios.delete(`http://localhost:3000/api/carts/${customerData.customer_id}/${roomId}`)
+                .then(response => {
+                    console.log('Đã xóa khỏi giỏ hàng', response.data);
+                    // Cập nhật giỏ hàng sau khi xóa
+                    return axios.get(`http://localhost:3000/api/carts/${customerData.customer_id}`);
+                })
+                .then(response => {
+                    setCartData(response.data);
+                })
+                .catch(error => {
+                    console.error('Lỗi xóa khỏi giỏ hàng:', error);
+                });
+        };
+    
+        toast.warn(
+            <div>
+                <p>Bạn có muốn xóa sản phẩm này khỏi giỏ hàng không?</p>
+                <div className="toast-buttons">
+                    <button className="btn-success btn-sm" onClick={confirmDelete}>Đồng ý</button>
+                    <button className="btn-danger btn-sm" onClick={() => toast.dismiss()}>Hủy</button>
+                </div>
+            </div>,
+            {
+                position: "top-right",
+                autoClose: false, // Don't auto-close the confirmation toast
+                hideProgressBar: true,
+                pauseOnHover: false,
+                draggable: false,
+                pauseOnFocusLoss: false,
+                // theme: "colored",
+                toastClassName: "custom-toast",
+                toastId: 'confirm-delete-toast',
+            }
+        );
+    };
+
+    const handleCloseCart = () => {
+        setToggleBooking(false);
+        document.body.classList.remove('dark-overlay');
+    }
+
+    useEffect(() => {
+        const handleClick = (event) => {
+            if (event.target.classList.contains('dark-overlay')) {
+                document.body.classList.remove('dark-overlay');
+                setToggleBooking(false);
+            }
+        };
+
+        document.body.addEventListener('click', handleClick);
+
+        return () => {
+            document.body.removeEventListener('click', handleClick);
+        };
+    }, []);
 
     return (
         <div className="product-detail">
@@ -96,7 +240,7 @@ const ProductDetail = (props) => {
                                                     </span>
                                                 </div>
                                                 <div className="btn-cart-buy d-flex flex-wrap">
-                                                    <a className="add-to-cart mx-3">Đặt phòng</a>
+                                                    <a onClick={handleCard} className="add-to-cart mx-3">Đặt phòng</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -228,6 +372,65 @@ const ProductDetail = (props) => {
                     </Col>
                 </Row>
             </Container>
+            <div className={`sidebar-mini-cart ${toggleBooking? 'open' : ''}`} ref={sidebarRef}>
+                <div className="title-top-cart d-flex  justify-content-between align-items-center me-3 mx-md-5 mt-5">
+                    <div className="title-cart">Giỏ hàng của bạn</div>
+                    <div className="sidebar-header">
+                        <a onClick={handleCloseCart} className="close-sidebar effect-rotate icon-close">
+                            <i className="fa-solid fa-xmark"></i>
+                        </a>
+                    </div>
+                </div>
+                <div className="content-mini-cart">
+                    {<div className="box-minicart">
+                        <ul className="cart-list list-unstyled mb-0">
+                            {cartData.length === 0 ? (
+                                <li className="empty text-center">
+                                <i className="fa-brands fa-opencart"></i>
+                                <div className="empty-cart">Chưa có sản phẩm nào trong giỏ hàng</div>
+                                </li>
+                            ) : (
+                                cartData.map(cartItem => (
+                                <li key={cartItem.room_id} className="cart-item clearfix">
+                                    <div className="inner-image">
+                                    <a href="#">
+                                        <img className="img-fluid" src={cartItem.image_url} alt={cartItem.room_name} />
+                                    </a>
+                                    </div>
+                                    <div className="inner-content">
+                                    <a href="#" className="product-title">{cartItem.room_name}</a>
+                                    <div className="quantity">
+                                        <span className="me-2">{cartItem.quantity}</span>
+                                        x
+                                        <span className="price-amount ms-2">
+                                        {cartItem.price}
+                                        <span className="currency-symbol">VND</span>
+                                        </span>
+                                    </div>
+                                    <div className="mt-2">
+                                        <a onClick={() => handleDelete(cartItem.room_id)} className="color-highlight cursor-pointer">Xóa</a>
+                                    </div>
+                                    </div>
+                                </li>
+                                ))
+                            )}
+                        </ul>
+                        <div className="entire-bottom-minicart">
+                            <div className="total-price clearfix">
+                                <label>Giá tạm tính: </label>
+                                <p className="price-amount">
+                                    {cartData.reduce((total, item) => Number(total) + Number(item.total_price), 0)}
+                                    <span className="currency-symbol">VND</span>
+                                </p>
+                            </div>
+                            <div className="mini-cart-btn">
+                                <a href="#" className="btn-cart-info btn-submit">Xem Giỏ Hàng</a>
+                                <a href="#" className="btn-checkout btn-submit">Thanh Toán</a>
+                            </div>
+                        </div>
+                    </div>}
+                </div>
+            </div>
         </div>
     )
 }

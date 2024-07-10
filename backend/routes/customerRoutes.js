@@ -9,4 +9,9 @@ router.get('/customers/:userName', customerController.getCustomerByUserName);
 // Định nghĩa route API để thêm khách hàng mới
 router.post('/customers', customerController.addCustomer);
 
-module.exports = router; // Ensure router is exported correctly
+// Định nghĩa route API để thay đổi mật khẩu của khách hàng
+router.put('/customers/:customerId/changePassword', customerController.changePassword);
+
+router.put('/customers/:id', customerController.updateCustomerInfo);
+
+module.exports = router;

@@ -1,0 +1,251 @@
+.accountManager {
+    font-family: system-ui, -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    /* font-family: "Work Sans", sans-serif; */
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #181b20;
+}
+
+.ml-n2, .mx-n2 {
+    margin-left: -0.5rem;
+    margin-right: -0.5rem;
+}
+
+.avatar-upload {
+    display: inline-block;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+}
+
+.avatar-upload .avatar-edit {
+    position: absolute;
+    bottom: -1px;
+    width: 100%;
+    text-align: center;
+    z-index: 9;
+}
+
+.avatar-upload .avatar-edit input {
+    display: none;
+}
+
+.avatar-upload .avatar-edit input + label {
+    margin-bottom: 0;
+    background: black;
+    cursor: pointer;
+    font-weight: normal;
+    transition: all .2s ease-in-out;
+    width: 100%;
+    color: #fff;
+    font-size: 1.2rem;
+}
+
+.avatar-upload .avatar-preview > div {
+    width: 8.9rem;
+    height: 8.9rem;
+    margin: 0 auto;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.name-profile {
+    color: #343a40;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.member-categories-section a {
+    display: block;
+    color: #181b20;
+    padding: 0.7rem 0.5rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+}
+
+.member-categories-section .active > a {
+    color: #b99470;
+    background-color: #f3f3f3;
+}
+
+.member-categories-section a i {
+    font-size: 1.6rem;
+    width: 2rem;
+}
+
+.btn-repair-info {
+    display: flex;
+    gap: 5px;
+}
+
+.title-profile {
+    font-weight: 700;
+    font-size: 2.1rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+}
+
+
+/* CustomDatePicker.css */
+
+/* Tăng kích thước chữ và padding cho input */
+.react-datepicker__input-container input {
+    font-size: 1.4rem;
+    padding: 0.5rem;
+    width: 100%; /* Đảm bảo input chiếm toàn bộ chiều rộng của cột */
+    box-sizing: border-box; /* Đảm bảo padding không làm thay đổi kích thước tổng */
+    border: 1px solid #ced4da; /* Viền xám nhạt */
+    border-radius: 0.25rem; /* Bo tròn góc */
+    transition: border-color 0.3s; /* Hiệu ứng chuyển đổi cho viền */
+}
+  
+.react-datepicker__input-container input:focus {
+    border-color: #80bdff; /* Viền xanh khi focus */
+    outline: none; /* Bỏ viền mặc định khi focus */
+    box-shadow: 0 0 0.3125rem rgba(128, 189, 255, 0.5); /* Hiệu ứng bóng khi focus */
+}
+  
+/* Tăng kích thước chữ và chỉnh lại khoảng cách của toàn bộ datepicker */
+.react-datepicker {
+    font-size: 1.3rem;
+    border: 1px solid #ced4da; /* Viền xám nhạt */
+    border-radius: 0.25rem; /* Bo tròn góc */
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ */
+}
+  
+.react-datepicker__current-month {
+    font-size: 1.3rem;
+}
+
+.react-datepicker__header {
+    background-color: #4caf50; /* Màu nền cho header */
+    color: white; /* Màu chữ cho header */
+    padding: 1rem; /* Thêm padding */
+    border-bottom: 1px solid #ced4da; /* Viền dưới */
+}
+  
+.react-datepicker__day-name,
+.react-datepicker__day,
+.react-datepicker__time-name {
+    width: 3rem; /* Tăng kích thước của ô ngày */
+    line-height: 3rem; /* Tăng chiều cao của ô ngày */
+    margin: 0.2rem; /* Thêm khoảng cách giữa các ô */
+    border-radius: 0.3rem; /* Bo tròn các góc */
+}
+  
+.react-datepicker__day:hover {
+    background-color: #4caf50;
+}
+
+.react-datepicker__day--selected {
+    background-color: #4caf50; /* Màu nền cho ngày được chọn */
+    color: white; /* Màu chữ cho ngày được chọn */
+}
+  
+.react-datepicker__day--keyboard-selected {
+    background-color: #81c784; /* Màu nền khi ngày được chọn bằng bàn phím */
+}
+  
+.react-datepicker__month-dropdown-container,
+.react-datepicker__year-dropdown-container {
+    margin: 1.5rem; /* Thêm khoảng cách giữa các dropdown */
+}
+  
+/* Tùy chỉnh select năm */
+.react-datepicker__year-select, 
+.react-datepicker__month-select {
+    font-size: 1.3rem; /* Tăng kích thước chữ */
+    padding: 0.3rem; /* Thêm padding */
+    width: 100%; /* Đảm bảo select chiếm toàn bộ chiều rộng của cột */
+    box-sizing: border-box; /* Đảm bảo padding không làm thay đổi kích thước tổng */
+    border: 1px solid #ced4da; /* Viền xám nhạt */
+    border-radius: 0.5rem; /* Bo tròn góc */
+    background-color: #fff; /* Màu nền trắng */
+    transition: border-color 0.3s, box-shadow 0.3s; /* Hiệu ứng chuyển đổi cho viền và bóng */
+}
+
+.react-datepicker__year-select:focus {
+    border-color: #80bdff; /* Viền xanh khi focus */
+    outline: none; /* Bỏ viền mặc định khi focus */
+    box-shadow: 0 0 0.3125rem rgba(128, 189, 255, 0.5); /* Hiệu ứng bóng khi focus */
+}
+
+.react-datepicker__month-select:focus {
+    border-color: #80bdff; /* Viền xanh khi focus */
+    outline: none; /* Bỏ viền mặc định khi focus */
+    box-shadow: 0 0 0.3125rem rgba(128, 189, 255, 0.5); /* Hiệu ứng bóng khi focus */
+}
+
+.react-datepicker-wrapper {
+    width: 100%;
+}
+
+
+/* Custom styles for the gender select input */
+.bootstrap-select {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.bootstrap-select .form-control {
+    font-size: 1.4rem; /* Tăng kích thước chữ */
+    padding: 0.5rem; /* Thêm padding */
+    border: 1px solid #ced4da; /* Viền xám nhạt */
+    border-radius: 0.25rem; /* Bo tròn góc */
+    width: 100%; /* Đảm bảo select chiếm toàn bộ chiều rộng của cột */
+    box-sizing: border-box; /* Đảm bảo padding không làm thay đổi kích thước tổng */
+    transition: border-color 0.3s, box-shadow 0.3s; /* Hiệu ứng chuyển đổi cho viền và bóng */
+    appearance: none; /* Bỏ dấu mũi tên mặc định */
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='%23333' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E") no-repeat right 1rem center;
+    background-size: 1rem 1rem;
+    cursor: pointer; /* Con trỏ chuột dạng pointer */
+}
+
+.bootstrap-select .form-control:focus {
+    border-color: #80bdff; /* Viền xanh khi focus */
+    outline: none; /* Bỏ viền mặc định khi focus */
+    box-shadow: 0 0 0.3125rem rgba(128, 189, 255, 0.5); /* Hiệu ứng bóng khi focus */
+}
+
+/* Tùy chỉnh các tùy chọn trong select */
+.bootstrap-select .form-control option {
+    padding: 0.5rem;
+    font-size: 1.4rem; /* Tăng kích thước chữ */
+    color: #333; /* Màu chữ */
+    background-color: #fff; /* Màu nền trắng */
+    transition: background-color 0.3s, color 0.3s; /* Hiệu ứng chuyển đổi cho nền và chữ */
+}
+
+.bootstrap-select .form-control option:hover {
+    background-color: #f0f0f0; /* Màu nền khi hover */
+    color: #000; /* Màu chữ khi hover */
+}
+
+.bootstrap-select .form-control option:checked {
+    background-color: #4caf50; /* Màu nền cho tùy chọn được chọn */
+    color: white; /* Màu chữ cho tùy chọn được chọn */
+}
+
+/* Additional styles for form control */
+.accountManager .form-control {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + 1.7rem + 2px);
+    padding: 0.85rem 1.25rem;
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #f5f5f5;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.accountManager .form-control {
+    height: 5rem;
+    border-color: #dedede;
+}

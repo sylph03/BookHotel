@@ -76,6 +76,7 @@ const ProductDetail = (props) => {
 
         if (!customerData || !customerData.customer_id || toggleBooking === true) {
             console.error('Customer data is not available');
+            toast.info("Đăng nhập để đặt phòng");
             return;
         }
 
@@ -154,14 +155,7 @@ const ProductDetail = (props) => {
                 </div>
             </div>,
             {
-                position: "top-right",
                 autoClose: false, // Don't auto-close the confirmation toast
-                hideProgressBar: true,
-                pauseOnHover: false,
-                draggable: false,
-                pauseOnFocusLoss: false,
-                // theme: "colored",
-                toastClassName: "custom-toast",
                 toastId: 'confirm-delete-toast',
             }
         );
@@ -424,7 +418,7 @@ const ProductDetail = (props) => {
                                 </p>
                             </div>
                             <div className="mini-cart-btn">
-                                <a href="#" className="btn-cart-info btn-submit">Xem Giỏ Hàng</a>
+                                <a href="/cart" className="btn-cart-info btn-submit">Xem Giỏ Hàng</a>
                                 <a href="#" className="btn-checkout btn-submit">Thanh Toán</a>
                             </div>
                         </div>

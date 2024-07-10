@@ -1,6 +1,27 @@
 // backend/models/userModel.js
 const db = require('../config/db');
 
+const changeInfoCustomer = (customerId, infoCustomer) => {
+  return new Promise((resolve, reject) => {
+    const sql = 'UPDATE Customers SET full_name = ?, birthday = ?, sex = ? WHERE customer_id = ?';
+    // Xử lý giá trị null
+    const birthday = infoCustomer.birthday || null;
+    const sex = infoCustomer.sex || null;
+
+    const values = [infoCustomer.full_name, birthday, sex, customerId];
+
+    db.query(sql, values, (err, result) => {
+      if (err) {
+        console.error('Lỗi truy vấn SQL:', err); // Log lỗi để xác định nguyên nhân
+        reject(err);
+      } else {
+        console.log('Kết quả truy vấn SQL:', result); // Log kết quả để xác nhận thành công
+        resolve(result);
+      }
+    });
+  });
+};
+
 const addCustomer = (customerData) => {
   return new Promise((resolve, reject) => {
     const sql = 'INSERT INTO Customers (full_name, email, phone, address, user_name, password) VALUES (?, ?, ?, ?, ?, ?)';
@@ -15,6 +36,22 @@ const addCustomer = (customerData) => {
     });
   });
 };
+
+const changePassword = (customerId, newPassword) => {
+  return new Promise((resolve, reject) => {
+    const sql = 'UPDATE Customers SET password = ? WHERE customer_id = ?';
+    const values = [newPassword, customerId]; 
+
+    db.query(sql, values, (err, result) => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(result.affectedRows); 
+      }
+    });
+  });
+};
+
 
 
 const getCustomerByUserName = (customerUserName) => {
@@ -74,7 +111,9 @@ const userNameExists = (userName) => {
 };
 
 module.exports = {
+  changeInfoCustomer,
   addCustomer,
+  changePassword,
   getCustomerByUserName,
   emailExists, 
   phoneExists,

@@ -210,7 +210,7 @@ const Register = () => {
             toast.success('Đăng ký thành công!');
             setTimeout(() => {
               window.location.href='/'; // Điều hướng đến trang chủ sau khi hiển thị toast
-            }, 1500); // Chờ 1 giây trước khi điều hướng
+            }, 1000); // Chờ 1 giây trước khi điều hướng
           })
           .catch(error => {
             console.error('There was an error!', error);

@@ -1,0 +1,221 @@
+.cart {
+    background-color: #f8f9fa;
+    font-family: system-ui, -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #181b20;
+}
+
+.cart a {
+    text-decoration: none;
+}
+
+.cart-title {
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    font-size: 2.1rem;
+    line-height: 1.2;
+    color: #181b20;
+}
+
+.table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #212529;
+    border-collapse: collapse;
+}
+
+.responsive-table {
+    width: 100%;
+    margin-bottom: 1.5em;
+    border-spacing: 0;
+}
+
+.responsive-table thead {
+    position: absolute;
+    clip: rect(1px 1px 1px 1px);
+    padding: 0;
+    border: 0;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+}
+
+.responsive-table tbody, .responsive-table tr, .responsive-table th, .responsive-table td {
+    display: block;
+    text-align: left;
+    white-space: normal;
+}
+
+.responsive-table thead th:first-of-type {
+    text-align: left;
+}
+
+.responsive-table thead th {
+    background-color: #181b20;
+    border: 1px solid #181b20;
+    font-weight: normal;
+    color: white;
+    text-align: center;
+}
+
+
+.cart-table th, .cart-table td {
+    padding: 0.75rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+}
+
+.responsive-table th, .responsive-table td {
+    vertical-align: middle;
+}
+
+.cart-table thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #dee2e6;
+}
+
+.responsive-table tbody tr:last-of-type {
+    margin-bottom: 0;
+}
+
+.responsive-table tbody td {
+    text-align: right;
+}
+
+small, .small {
+    font-size: 0.875em;
+    font-weight: 400;
+}
+
+.color-highlight {
+    color: #b99470 !important;
+}
+
+.entire-cart-totals .cart-totals {
+    width: 100%;
+}
+
+.entire-cart-totals .order-total {
+    font-size: 1.7rem;
+}
+
+.entire-cart-totals .cart-totals th {
+    padding: 1rem;
+    border-bottom: 1px solid #e2e2e2;
+    text-transform: uppercase;
+    padding-left: 0;
+}
+
+.entire-cart-totals .cart-totals td {
+    text-align: right;
+    border-bottom: 1px solid #e2e2e2;
+}
+
+.ratio-1-1 {
+    padding-top: 100%;
+}
+
+.ratio-3-2, .ratio-1-1, .ratio-16-9, .ratio-4-3, .ratio-8-5, .ratio-custome {
+    position: relative;
+}
+
+.rounded {
+    border-radius: 0.25rem !important;
+}
+
+.responsive-table tbody th[scope="row"] a {
+    color: #181b20;
+}
+
+.ratio-3-2 iframe, .ratio-3-2 video, .ratio-3-2 img, .ratio-1-1 iframe, .ratio-1-1 video, .ratio-1-1 img, .ratio-16-9 iframe, .ratio-16-9 video, .ratio-16-9 img, .ratio-4-3 iframe, .ratio-4-3 video, .ratio-4-3 img, .ratio-8-5 iframe, .ratio-8-5 video, .ratio-8-5 img, .ratio-custome iframe, .ratio-custome video, .ratio-custome img {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.cart-info-section .item-quantity .product-quantity {
+    display: inline-block;
+}
+
+.responsive-table tbody tr:nth-of-type(even) {
+    background-color: #f1f1f1;
+}
+
+.cart .mx-n2 {
+    margin-left: -0.5rem;
+    margin-right: -0.5rem;
+}
+
+.responsive-table tbody td[data-title]:before {
+    content: attr(data-title);
+    float: left;
+}
+
+@media (min-width: 48em) {
+    .responsive-table tr {
+        display: table-row;
+    }
+}
+@media (min-width: 48em) {
+    .responsive-table thead {
+        position: relative;
+        clip: auto;
+        height: auto;
+        width: auto;
+        overflow: auto;
+    }
+}
+
+@media (min-width: 48em) {
+    .responsive-table tbody {
+        display: table-row-group;
+    }
+}
+
+@media (min-width: 48em) {
+    .responsive-table tbody tr {
+        display: table-row;
+        /* border-width: 1px; */
+    }
+}
+
+@media (min-width: 48em) {
+    .responsive-table tbody th[scope="row"] {
+        background-color: transparent;
+        color: #181b20;
+        text-align: left;
+    }
+}
+
+@media (min-width: 48em) {
+    .responsive-table th, .responsive-table td {
+        display: table-cell;
+    }
+}
+
+@media (min-width: 48em) {
+    .responsive-table tbody th[scope="row"] a {
+        color: #181b20;
+    }
+}
+
+@media (min-width: 48em) {
+    .responsive-table tbody td {
+        text-align: center;
+    }
+}
+
+@media (min-width: 48em) {
+    .responsive-table tbody tr:nth-of-type(even) {
+        background-color: #f1f1f1;
+    }
+}
+
+

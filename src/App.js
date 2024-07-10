@@ -5,6 +5,8 @@ import Rooms from './screens/Rooms/Rooms';
 import RoomDetail from './screens/RoomDetail/RoomDetail';
 import Register from './screens/Login/Register/Register'
 import LogIn from './screens/Login/LogIn/LogIn'
+import AccountManager from './screens/AccountManager/AccountManager';
+import Cart from './screens/Cart/Cart'
 
 import './App.css';
 
@@ -18,6 +20,9 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/rooms" element={<Rooms />} />
           <Route path="/rooms/:id" element={<RoomDetail />} />
+          <Route path="accoutManager" element={<AccountManager />} />
+          <Route path="accoutManager/:changePassword" element={<AccountManager />} />
+          <Route path="cart" element={<Cart/>} />
           {/* Các Route khác tại đây */}
         </Routes>
       </div>

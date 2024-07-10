@@ -48,7 +48,7 @@ const updateCartQuantityByCustomerAndRoom = (customerId, roomId, quantity) => {
 const getCart = (customerId) => {
     return new Promise((resolve, reject) => {
         const sql = `
-            SELECT c.quantity, r.room_id, r.room_name, r.image_url, r.price, (r.price * c.quantity) AS total_price
+            SELECT c.cart_id, c.quantity, r.room_id, r.room_name, r.image_url, r.price, (r.price * c.quantity) AS total_price
             FROM Carts c
             JOIN Rooms r ON c.room_id = r.room_id
             WHERE c.customer_id = ?

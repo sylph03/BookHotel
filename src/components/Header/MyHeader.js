@@ -60,7 +60,7 @@ const MyHeader = () => {
         } 
     };
 
-    const handleLogout = (e) => {
+    const handleLogout = () => {
         localStorage.removeItem('customerUser');
         setCustomerData(null);
     };
@@ -93,18 +93,22 @@ const MyHeader = () => {
                                                 {customerData ? customerData.full_name : "Tài khoản"}
                                             </a>
                                             <div className={`dropdown-menu dropdown-menu-righ ${isDropdownOpen ? 'show' : ''}`} style={{position: "absolute", transform: "translate3d(-97px, 23px, 0px)", top: "0px", left: "0px", willChange: "transform"}}>
-                                                <a href='#' className='dropdown-item py-3'>
+                                                <a href='/accoutManager' className='dropdown-item py-3'>
                                                     <i className="fa-solid fa-user"></i>
                                                     Thông tin cá nhân
                                                 </a>
+                                                <a href='/cart' className='dropdown-item py-3'>
+                                                    <i className="fa-solid fa-cart-shopping"></i>
+                                                    Giỏ hàng
+                                                </a>
                                                 <a href='#' className='dropdown-item py-3'>
-                                                    <i className="fa-solid fa-clipboard"></i>
+                                                    <i className="fa-solid fa-clipboard-list"></i>
                                                     Quản lý đơn hàng
                                                 </a>
-                                                <a href='#' className='dropdown-item py-3'>
+                                                {/* <a href={`/accoutManager/changePassword`} className='dropdown-item py-3'>
                                                     <i className="fa-solid fa-lock"></i>
                                                     Thay đổi mật khẩu
-                                                </a>
+                                                </a> */}
                                                 <a onClick={handleLogout} href='/login' className='dropdown-item py-3'>
                                                     <i className="fa-solid fa-right-from-bracket"></i>
                                                     Thoát
@@ -114,7 +118,7 @@ const MyHeader = () => {
                                         
                                     </div>
                                     <div className='btn-booking'>
-                                        <a href='#'>
+                                        <a href='/rooms'>
                                             <i className="fa-solid fa-bell-concierge"></i>
                                             Đặt phòng
                                         </a>

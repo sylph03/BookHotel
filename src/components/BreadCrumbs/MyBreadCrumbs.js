@@ -14,9 +14,10 @@ const MyBreadCrumbs = (props) => {
         '/rooms': 'Phòng',
         '/login': 'Đăng nhập',
         '/register': 'Đăng ký tài khoản',
-        '/accoutManager': "Quản lý tài khoản",
-        '/accoutManager/changePassword' : "Thay đổi mật khẩu",
+        '/accountManager': "Quản lý tài khoản",
+        '/accountManager/changePassword' : "Thay đổi mật khẩu",
         '/cart' : "Giỏ hàng",
+        '/payment' : "Thông tin đơn hàng",
         ...(props.room && { [`/rooms/${props.room.room_id}`]: props.room.room_name })
         // Thêm các đường dẫn và nhãn tương ứng khác nếu cần
 

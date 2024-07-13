@@ -93,7 +93,7 @@ const MyHeader = () => {
                                                 {customerData ? customerData.full_name : "Tài khoản"}
                                             </a>
                                             <div className={`dropdown-menu dropdown-menu-righ ${isDropdownOpen ? 'show' : ''}`} style={{position: "absolute", transform: "translate3d(-97px, 23px, 0px)", top: "0px", left: "0px", willChange: "transform"}}>
-                                                <a href='/accoutManager' className='dropdown-item py-3'>
+                                                <a href='/accountManager' className='dropdown-item py-3'>
                                                     <i className="fa-solid fa-user"></i>
                                                     Thông tin cá nhân
                                                 </a>

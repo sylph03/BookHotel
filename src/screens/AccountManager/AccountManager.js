@@ -3,6 +3,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import { ToastContainer, toast } from 'react-toastify';
 import axios from "axios";
 import { useParams, Link } from 'react-router-dom';
+import { parse, format, isValid } from 'date-fns'; // Thư viện để xử lý ngày tháng
 
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -30,16 +31,26 @@ const AccountManager = () => {
     });
 
     useEffect(() => {
-        // Lấy thông tin người dùng từ sessionStorage khi component được tải lần đầu
         const customerUserData = localStorage.getItem('customerUser');
         if (customerUserData) {
             const parsedData = JSON.parse(customerUserData);
             setCustomerData(parsedData);
             setFullName(parsedData.full_name);
             setGender(parsedData.sex);
-            setStartDate(parsedData.birthday ? new Date(parsedData.birthday) : null);
+
+            // Chuyển đổi ngày sinh từ định dạng yyyy-MM-dd sang đối tượng Date
+            if (parsedData.birthday) {
+                const parsedDate = new Date(parsedData.birthday);
+                if (isValid(parsedDate)) {
+                    setStartDate(parsedDate);
+                } else {
+                    console.error('Ngày sinh không hợp lệ:', parsedData.birthday);
+                }
+            }
         }
     }, []);
+
+    const formattedBirthday =  customerData && customerData.birthday ? format(new Date(customerData.birthday), 'dd/MM/yyyy') : '';
 
     const handleLogout = () => {
         localStorage.removeItem('customerUser');
@@ -172,10 +183,11 @@ const AccountManager = () => {
             console.error('Không tìm thấy thông tin khách hàng');
             return;
         }
-    
+
         let birthday = null;
-        if (startDate instanceof Date && !isNaN(startDate)) {
-            birthday = startDate.toISOString().split('T')[0]; // Định dạng yyyy-mm-dd
+        if (startDate && isValid(startDate)) {
+            // Chuyển đổi ngày từ đối tượng Date sang định dạng yyyy-MM-dd
+            birthday = format(startDate, 'yyyy-MM-dd');
         }
     
         const infoCustomer = {
@@ -207,6 +219,7 @@ const AccountManager = () => {
     };
     
 
+    
     return(
         <div>
             <MyHeader/>
@@ -292,7 +305,7 @@ const AccountManager = () => {
                                     </li>}
                                     {(customerData && customerData.birthday) && <li className="d-flex justify-content-between pb-3 mb-3 border-bottom border-gray">
                                         <span>Ngày sinh</span>
-                                        <span><strong>{customerData && customerData.birthday}</strong></span>
+                                        <span><strong>{formattedBirthday}</strong></span>
                                     </li>}
                                     <li className="d-flex justify-content-between pb-3 mb-3 border-bottom border-gray">
                                         <span>Email</span>
@@ -308,7 +321,7 @@ const AccountManager = () => {
                                     </li>
                                 </ul>
                                 <div className="btn-repair-info mt-5 justify-content-end">
-                                    <Link to="/accoutManager/changePassword" onClick={() => setPage('changePassword')} className="btn-submit">Thay đổi mật khẩu</Link>
+                                    <Link to="/accountManager/changePassword" onClick={() => setPage('changePassword')} className="btn-submit">Thay đổi mật khẩu</Link>
                                     <a onClick={() => setPage('repairInfo')} className="btn-submit">Sửa thông tin</a>
                                 </div>
                             </div>
@@ -388,7 +401,7 @@ const AccountManager = () => {
                                 <button type="submit" className="btn-submit">
                                     Cập nhật
                                 </button>
-                                <Link to="/accoutManager" onClick={handleCancel} className="btn-submit">
+                                <Link to="/accountManager" onClick={handleCancel} className="btn-submit">
                                     Hủy
                                 </Link>
                             </div>
@@ -413,16 +426,16 @@ const AccountManager = () => {
                                             <div className="form-group">
                                                 <label>Ngày sinh:</label>
                                                 <div>
-                                                    <DatePicker
-                                                        selected={startDate}
-                                                        onChange={(date) => setStartDate(date)}
-                                                        dateFormat="dd/MM/yyyy"
-                                                        className="form-control"
-                                                        placeholderText="dd/mm/yyyy"
-                                                        showMonthDropdown
-                                                        showYearDropdown
-                                                        dropdownMode="select"
-                                                    />
+                                                <DatePicker
+                                                    selected={startDate}
+                                                    onChange={(date) => setStartDate(date)}
+                                                    dateFormat="dd/MM/yyyy"
+                                                    className="form-control"
+                                                    placeholderText="dd/mm/yyyy"
+                                                    showMonthDropdown
+                                                    showYearDropdown
+                                                    dropdownMode="select"
+                                                />
                                                 </div>
                                             </div>
                                         </Col>

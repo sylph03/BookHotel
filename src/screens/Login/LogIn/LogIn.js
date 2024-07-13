@@ -82,7 +82,11 @@ const LogIn = () => {
                     localStorage.setItem('customerUser', JSON.stringify(customerData));
                     toast.success('Đăng nhập thành công!');
                     setTimeout(() => {
-                        window.location.href='/'; // Điều hướng đến trang chủ sau khi hiển thị toast
+                        if (customerData.user_name === 'admin') {
+                            window.location.href = '/admin'; // Điều hướng đến trang admin nếu người dùng là admin
+                        } else {
+                            window.location.href = '/'; // Điều hướng đến trang chủ nếu không phải là admin
+                        }
                     }, 1000); // Chờ 1 giây trước khi điều hướng
                 }
             } catch (error) {

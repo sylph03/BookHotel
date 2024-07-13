@@ -220,7 +220,7 @@ const MyCart = () => {
                                         </tbody>
                                     </table>
                                     <div className="proceed-to-checkout">
-                                        <a onClick={handleConfirmCart} className="btn-submit w-100">Xác nhận giỏ hàng</a>
+                                        <a href="/payment" onClick={handleConfirmCart} className="btn-submit w-100">Xác nhận giỏ hàng</a>
                                     </div>
                                 </div>
                             </Col>

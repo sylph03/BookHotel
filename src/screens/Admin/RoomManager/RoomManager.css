@@ -1,0 +1,64 @@
+.room-table {
+    width: 100%;
+    margin-bottom: 0;
+}
+
+.room-table thead th {
+    border-bottom: 2px solid #dee2e6;
+    text-align: center;
+    vertical-align: middle;
+    padding: 12px;
+    color: #3A4752;
+    font-weight: bold;
+    background-color: #f8f9fa;
+}
+
+.room-table tbody td {
+    border-bottom: 1px solid #dee2e6;
+    vertical-align: middle;
+    text-align: center;
+    padding: 12px;
+    color: #768B9E;
+}
+
+tbody tr:last-child {
+    border: 0;
+}
+
+.room-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* .price-amount {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} */
+
+.main-wrapper .card-body {
+    padding: 30px;
+}
+
+.card-body .table {
+    margin-bottom: 0;
+}
+
+.main-wrapper .card {
+    border-radius: 10px;
+    margin-bottom: 30px;
+    border: none;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+}
+
+.action-icon {
+    margin: 0 5px;
+    color: #495057;
+    cursor: pointer;
+}
+
+.action-icon:hover {
+    color: #b99470;
+}

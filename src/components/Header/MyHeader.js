@@ -66,7 +66,7 @@ const MyHeader = () => {
     };
 
     return (
-        <div className='header'>
+        <div className='header bg-white'>
             <div className='header-top'>
                 <Container>
                     <Row>

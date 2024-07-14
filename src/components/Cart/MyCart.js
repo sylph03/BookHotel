@@ -99,7 +99,7 @@ const MyCart = () => {
         ))
         .then(responses => {
             console.log('Đã cập nhật số lượng giỏ hàng', responses);
-            toast.success('Giỏ hàng đã được cập nhật!');
+            // toast.success('Giỏ hàng đã được cập nhật!');
         })
         .catch(error => {
             console.error('Lỗi cập nhật giỏ hàng:', error);

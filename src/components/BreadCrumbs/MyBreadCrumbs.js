@@ -18,6 +18,7 @@ const MyBreadCrumbs = (props) => {
         '/accountManager/changePassword' : "Thay đổi mật khẩu",
         '/cart' : "Giỏ hàng",
         '/payment' : "Thông tin đơn hàng",
+        '/success' : "Đơn hàng thành công",
         ...(props.room && { [`/rooms/${props.room.room_id}`]: props.room.room_name })
         // Thêm các đường dẫn và nhãn tương ứng khác nếu cần
 

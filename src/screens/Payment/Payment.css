@@ -1,0 +1,59 @@
+.checkout-section, .order-section {
+    font-family: system-ui, -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    /* font-family: "Work Sans", sans-serif; */
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #181b20;
+}
+
+.checkout-section a, .order-section a {
+    text-decoration: none;
+    background-color: transparent;
+    transition: all 0.25s ease;
+}
+
+.checkout-section-title {
+    font-size: 2.1rem;
+    line-height: 1.2;
+}
+
+.color-main {
+    color: #181b20 !important;
+    font-weight: 700;
+}
+
+.checkout-section textarea.form-control {
+    height: auto;
+}
+
+.border-gray {
+    border-color: #e1e1e1 !important;
+}
+
+.bg-light {
+    background-color: #f8f9fa !important;
+}
+
+.checkout-section .form-control {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + 1.7rem + 2px);
+    padding: 0.85rem 1.25rem;
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #f5f5f5;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.separation-dash {
+    border-bottom: 1px dashed #e1e1e1;
+}
+
+a.color-main:hover {
+    color: #b99470 !important;
+}

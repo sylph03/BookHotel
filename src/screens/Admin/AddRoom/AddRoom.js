@@ -220,7 +220,8 @@ const AddRoom = () => {
                                     </div>
                                     <div>
                                         <label className="form-label">Mô tả</label>
-                                        <textarea onBlur={validateDescription} value={description} onChange={e => setDescription(e.target.value)} placeholder="Mô tả về phòng này" className="required form-control" cols={0} rows={8}></textarea>
+                                        <span className="text-danger">*</span>
+                                        <textarea onBlur={validateDescription} value={description} onChange={e => setDescription(e.target.value)} placeholder="Mô tả về phòng này" className="required form-control" cols={45} rows={8}></textarea>
                                         {errors.description && <label style={{ display: "inline-block" }} className="error invalid-feedback">{errors.description}</label>}
                                     </div>
                                 </div>
@@ -228,7 +229,10 @@ const AddRoom = () => {
                         </Card>
                         <Card>
                           <Card.Body>
-                              <h4 className="card-title mb-7">Hình ảnh</h4>
+                            <h4 className="card-title mb-7">
+                                Hình ảnh
+                                <span className="text-danger">*</span>
+                            </h4>
                               <div className="dropzone dz-clickable mb-2">
                                   <div className="dz-default dz-message">
                                       <button onClick={handleUploadClick} className="dz-button" type="button">Thả tệp vào đây</button>
@@ -250,9 +254,12 @@ const AddRoom = () => {
                         </Card>
                         <Card>
                             <Card.Body>
-                                <h4 className="card-title mb-7">Loại phòng</h4>
+                                <h4 className="card-title mb-7">
+                                    Loại phòng
+                                </h4>
                                 <div>
                                     <label className="form-label">Chọn loại phòng</label>
+                                    <span className="text-danger">*</span>
                                     <div className="email-repeater mb-3">
                                         <select value={roomType} onChange={(e) => setRoomType(e.target.value)} className="form-control form-control-sm selectpicker">
                                             <option value="">-- Loại --</option>
@@ -268,7 +275,9 @@ const AddRoom = () => {
                         </Card>
                         <Card>
                             <Card.Body>
-                                <h4 className="card-title mb-7">Giá (VND)</h4>
+                                <h4 className="card-title mb-7">
+                                    Giá (VND)
+                                </h4>
                                 <div>
                                     <div className="mb-7">
                                         <label className="form-label">

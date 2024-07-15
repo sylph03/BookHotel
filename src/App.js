@@ -5,13 +5,14 @@ import Rooms from './screens/Rooms/Rooms';
 import RoomDetail from './screens/RoomDetail/RoomDetail';
 import Register from './screens/Login/Register/Register';
 import LogIn from './screens/Login/LogIn/LogIn';
-import AccountManager from './screens/AccountManager/AccountManager';
+import AccountManager from './screens/Account/AccountManager';
 import Cart from './screens/Cart/Cart';
 import RoomManager from './screens/Admin/RoomManager/RoomManager';
 import NavigateAdmin from './screens/Admin/NavigateAdmin';
 import Payment from './screens/Payment/Payment';
 import BookingSuccess from './screens/BookingSuccess/BookingSuccess'
 import AddRoom from './screens/Admin/AddRoom/AddRoom'
+import AccountAddress from './screens/Account/AccoutAddress';
 
 import './App.css';
 
@@ -33,6 +34,7 @@ function App() {
           <Route path="/payment" element={<Payment/>} />
           <Route path="/success" element={<BookingSuccess/>} />
           <Route path="/addRoom" element={<AddRoom/>} />
+          <Route path="/accountAddress" element={<AccountAddress/>} />
           {/* Các Route khác tại đây */}
         </Routes>
       </div>

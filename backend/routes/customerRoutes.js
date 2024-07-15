@@ -2,6 +2,21 @@
 const express = require('express');
 const router = express.Router();
 const customerController = require('../controllers/customerController');
+const multer = require('multer');
+const path = require('path');
+
+// Cấu hình đa dạng để tải lên tập tin
+// Cấu hình multer để lưu trữ file upload
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+      cb(null, path.join(__dirname, '../uploads'));
+    },
+    filename: (req, file, cb) => {
+      cb(null, `${Date.now()}-${file.originalname}`);
+    }
+  });
+  
+  const upload = multer({ storage });
 
 // Định nghĩa route API để lấy thông tin khách hàng
 router.get('/customers/:userName', customerController.getCustomerByUserName);
@@ -13,5 +28,9 @@ router.post('/customers', customerController.addCustomer);
 router.put('/customers/:customerId/changePassword', customerController.changePassword);
 
 router.put('/customers/:id', customerController.updateCustomerInfo);
+
+router.put('/customers/:id/changeAvatar', upload.single('image'), customerController.changeAvatar);
+
+router.put('/customers/:id/changeAddress', customerController.changeAddress);
 
 module.exports = router;

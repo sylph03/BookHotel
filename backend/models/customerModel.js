@@ -1,6 +1,32 @@
 // backend/models/userModel.js
 const db = require('../config/db');
 
+const changeAddress = (customerId, address) => {
+  return new Promise((resolve, reject) => {
+    const sql = "UPDATE Customers SET address = ? WHERE customer_id = ?";
+    db.query(sql, [address, customerId], (err, result) => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(result);
+      }
+    });
+  });
+};
+
+const changeAvatar = (customerId, imageUrl) => {
+  return new Promise((resolve, reject) => {
+    const sql = "UPDATE Customers SET customer_image = ? WHERE customer_id = ?";
+    db.query(sql, [imageUrl, customerId], (err, result) => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(result);
+      }
+    });
+  });
+};
+
 const changeInfoCustomer = (customerId, infoCustomer) => {
   return new Promise((resolve, reject) => {
     const sql = 'UPDATE Customers SET full_name = ?, birthday = ?, sex = ? WHERE customer_id = ?';
@@ -111,6 +137,8 @@ const userNameExists = (userName) => {
 };
 
 module.exports = {
+  changeAddress,
+  changeAvatar,
   changeInfoCustomer,
   addCustomer,
   changePassword,

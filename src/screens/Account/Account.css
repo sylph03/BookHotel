@@ -1,10 +1,14 @@
-.accountManager {
+.account {
     font-family: system-ui, -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
     /* font-family: "Work Sans", sans-serif; */
     font-size: 1.5rem;
     font-weight: 400;
     line-height: 1.5;
     color: #181b20;
+}
+
+.account a {
+    text-decoration: none;
 }
 
 .ml-n2, .mx-n2 {
@@ -230,7 +234,7 @@
 }
 
 /* Additional styles for form control */
-.accountManager .form-control {
+.account .form-control {
     display: block;
     width: 100%;
     height: calc(1.5em + 1.7rem + 2px);
@@ -245,7 +249,9 @@
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
-.accountManager .form-control {
+.account .form-control {
     height: 5rem;
     border-color: #dedede;
 }
+
+

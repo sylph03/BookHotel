@@ -7,11 +7,12 @@ import { parse, format, isValid } from 'date-fns'; // Thư viện để xử lý
 
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import './AccountManager.css';
+import './Account.css';
 import MyHeader from '../../components/Header/MyHeader';
 import MyBreadCrumbs from '../../components/BreadCrumbs/MyBreadCrumbs';
 import MyFooter from '../../components/Footer/MyFooter';
 import MyCoppyright from '../../components/Copyright/MyCopyright';
+import AccoutSidebar from "./AccoutSidebar";
 
 const AccountManager = () => {
     let { changePassword } = useParams();
@@ -51,11 +52,6 @@ const AccountManager = () => {
     }, []);
 
     const formattedBirthday =  customerData && customerData.birthday ? format(new Date(customerData.birthday), 'dd/MM/yyyy') : '';
-
-    const handleLogout = () => {
-        localStorage.removeItem('customerUser');
-        setCustomerData(null);
-    };
 
     const validateOldPassword = () => {
         if (oldPassword.trim() === "") {
@@ -218,13 +214,11 @@ const AccountManager = () => {
             });
     };
     
-
-    
     return(
         <div>
             <MyHeader/>
             <MyBreadCrumbs mb="mb-0"/>
-            <div className="accountManager bg-light pb-5 pt-5">
+            <div className="account bg-light pb-5 pt-5">
                 <ToastContainer 
                     position="top-right"
                     autoClose={3000}
@@ -241,52 +235,7 @@ const AccountManager = () => {
                 <Container className="mt-3">
                     <Row className="mx-n2">
                         <Col className="col-12 col-md-3 col-lg-3 px-2">
-                            <div className="h-100 bg-white p-4">
-                                <div className="profile-top-left">
-                                    <div className="img-profile text-center">
-                                        <div className="avatar-upload">
-                                            <div className="avatar-edit">
-                                                <input type="file" id="imageUpload"/>
-                                                <label>Sửa</label>
-                                            </div>
-                                            <div className="avatar-preview">
-                                                <div style={{backgroundImage: `url(${customerData && customerData.customer_image ? customerData.customer_image : 'https://cellphones.com.vn/sforum/wp-content/uploads/2023/10/avatar-trang-4.jpg'})`}}></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="name-profile">
-                                        {customerData && customerData.full_name}
-                                    </div>
-                                </div>
-                                <div className="member-categories-section">
-                                    <div className="fw-bold my-3">Tài khoản của tôi</div>
-                                    <div className="active" >
-                                        <a href="#" className="active">
-                                            <i className="fa-solid fa-user me-2"></i>
-                                            Thông tin cá nhân
-                                        </a>
-                                    </div>
-                                    <div>
-                                        <a href="#">
-                                            <i className="fa-solid fa-map-location-dot me-2"></i>
-                                            Địa chỉ nhận hàng
-                                        </a>
-                                    </div>
-                                    <div>
-                                        <a href="#">
-                                            <i className="fa-solid fa-clipboard-list me-2"></i>
-                                            Đơn hàng
-                                        </a>
-                                    </div>
-                                    {/* <div>
-                                        <a href="/cart">
-                                            <i class="fa-solid fa-cart-shopping me-2"></i>
-                                            Giỏ hàng
-                                        </a>
-                                    </div> */}
-                                    <a onClick={(handleLogout)} href="/" className="btn-submit d-block mt-4 text-white rounded-0">Đăng xuất</a>
-                                </div>
-                            </div>
+                            <AccoutSidebar customerData={customerData} setCustomerData={setCustomerData}/>
                         </Col>
                         {page==='personalInfo' && <Col className="col-12 col-md-9 col-lg-9 px-2">
                             <div className="bg-white h-100 p-4">

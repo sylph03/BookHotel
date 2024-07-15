@@ -21,5 +21,6 @@ router.get('/rooms', roomController.getRooms);
 router.get('/rooms/:id', roomController.getRoomById);
 router.delete('/rooms/delete/:id', roomController.deleteRoomById);
 router.post('/rooms/add', upload.single('image'), roomController.insertRoom);
+router.put('/rooms/edit', upload.single('image'), roomController.updateRoom);
 
 module.exports = router;

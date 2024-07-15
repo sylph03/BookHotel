@@ -1,5 +1,19 @@
 const roomModel = require('../models/roomModel');
 
+const updateRoom = async (req, res) => {
+  const { roomName, roomType, price, description, roomId } = req.body;
+  const imageUrl = req.file ? `http://localhost:3000/uploads/${req.file.filename}` : '';
+  const hasImage = !!req.file; // Check if there's an image file
+
+  try {
+    const result = await roomModel.updateRoom(roomName, roomType, price, description, imageUrl, roomId, hasImage);
+    res.status(201).json({ message: 'Thay đổi thông tin phòng thành công', result });
+  } catch (error) {
+    console.error('Lỗi thay đổi thông tin phòng:', error);
+    res.status(500).json({ message: 'Lỗi thay đổi thông tin phòng', error });
+  }
+};
+
 const insertRoom = async (req, res) => {
   const { roomName, roomType, price, description } = req.body;
   const imageUrl = req.file ? `http://localhost:3000/uploads/${req.file.filename}` : '';
@@ -11,10 +25,6 @@ const insertRoom = async (req, res) => {
     console.error('Lỗi thêm phòng:', error);
     res.status(500).json({ message: 'Lỗi thêm phòng', error });
   }
-};
-
-module.exports = {
-  insertRoom,
 };
 
 
@@ -68,6 +78,7 @@ const deleteRoomById = async (req, res) => {
 };
 
 module.exports = {
+  updateRoom,
   insertRoom,
   getRooms,
   getRoomById,

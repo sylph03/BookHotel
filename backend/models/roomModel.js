@@ -1,6 +1,28 @@
 // backend/models/userModel.js
 const db = require('../config/db');
 
+const updateRoom = (roomName, roomType, price, description, imageUrl, roomId, hasImage) => {
+  return new Promise((resolve, reject) => {
+    let sql, values;
+
+    if (hasImage) {
+      sql = 'UPDATE rooms SET room_name = ?, type = ?, price = ?, description = ?, image_url = ? WHERE room_id = ?';
+      values = [roomName, roomType, price, description, imageUrl, roomId];
+    } else {
+      sql = 'UPDATE rooms SET room_name = ?, type = ?, price = ?, description = ? WHERE room_id = ?';
+      values = [roomName, roomType, price, description, roomId];
+    }
+
+    db.query(sql, values, (err, result) => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(result);
+      }
+    });
+  });
+};
+
 const insertRoom = (roomName, roomType, price, description, imageUrl) => {
   return new Promise((resolve, reject) => {
     const sql = 'INSERT INTO rooms (room_name, type, price, description, image_url) VALUES (?, ?, ?, ?, ?)';
@@ -84,6 +106,7 @@ const deleteRoom = (roomId) => {
 }
 
 module.exports = {
+  updateRoom,
   insertRoom,
   getRoomById,
   getRooms,

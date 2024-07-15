@@ -1,6 +1,32 @@
 // backend/controllers/customerController.js
 const userModel = require('../models/customerModel');
 
+const changeAddress = async (req, res) => {
+  const customer_id = req.params.id;
+  const addres = req.body.address;
+
+  try {
+    const result = await userModel.changeAddress(customer_id, addres);
+    res.status(201).json({ message: 'Thay đổi địa chỉ thành công', result});
+  } catch (error) {
+    console.error('Lỗi thay đổi avatar:', error);
+    res.status(500).json({ message: 'Lỗi thay đổi địa chỉ', error });
+  }
+};
+
+const changeAvatar = async (req, res) => {
+  const customer_id = req.params.id;
+  const imageUrl = req.file ? `http://localhost:3000/uploads/${req.file.filename}` : '';
+
+  try {
+    const result = await userModel.changeAvatar(customer_id, imageUrl);
+    res.status(201).json({ message: 'Thay đổi avatar thành công', result, avatarUrl: imageUrl });
+  } catch (error) {
+    console.error('Lỗi thay đổi avatar:', error);
+    res.status(500).json({ message: 'Lỗi thay đổi avatar', error });
+  }
+};
+
 const updateCustomerInfo = async (req, res) => {
   const customerId = req.params.id;
   const infoCustomer = {
@@ -83,6 +109,8 @@ const addCustomer = async (req, res) => {
 
 
 module.exports = {
+  changeAddress,
+  changeAvatar,
   updateCustomerInfo,
   changePassword,
   getCustomerByUserName,

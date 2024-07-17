@@ -27,10 +27,15 @@ const getBookings = async (req, res) => {
     }
 };
 
-const getBookingByCustomer = async (req, res) => {
+const getBookingsByCustomer = async (req, res) => {
     try {
-        const bookings = await paymentModel.getBookingByCustomer(customerId);
-        res.status(200).json(bookings);
+        const { customerId } = req.params;
+        const bookings = await paymentModel.getBookingsByCustomer(customerId);
+        const bookingsWithDetails = await Promise.all(bookings.map(async (booking) => {
+            const details = await paymentModel.getBookingDetails(booking.booking_id);
+            return { ...booking, details };
+        }));
+        res.status(200).json(bookingsWithDetails);
     } catch (err) {
         console.error('Error fetching bookings:', err);
         res.status(500).json({ error: 'Internal server error' });
@@ -48,9 +53,21 @@ const getBookingDetails = async (req, res) => {
     }
 };
 
+const getBookingRoomByBookingId = async (req, res) => {
+    try {
+        const { bookingId } = req.params; // Lấy bookingId từ params
+        const bookingRoom = await paymentModel.getBookingRoomByBookingId(bookingId);
+        res.status(200).json(bookingRoom);
+    } catch (err) {
+        console.error('Error fetching booking room by bookingId:', err);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+};
+
 module.exports = {
     addBooking,
     getBookings,
-    getBookingByCustomer,
-    getBookingDetails
+    getBookingsByCustomer,
+    getBookingDetails,
+    getBookingRoomByBookingId
 };

@@ -82,7 +82,7 @@ const AccoutSidebar = ( {customerData, setCustomerData} ) => {
                     </a>
                 </div>
                 <div>
-                    <a href="#">
+                    <a href="/accountOrder">
                         <i className="fa-solid fa-clipboard-list me-2"></i>
                         Đơn hàng
                     </a>

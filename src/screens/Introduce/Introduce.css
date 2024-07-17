@@ -1,0 +1,115 @@
+.introduce, .introduceDetail {
+    font-family: system-ui, -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    /* font-family: "Work Sans", sans-serif; */
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #181b20;
+}
+
+.title-section {
+    font-size: 2.8rem;
+    color: var(--color-black);
+    font-weight: 400;
+    position: relative;
+    margin-bottom: 2.5rem;
+    padding-bottom: 2.5rem;
+}
+
+.title-section:before {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 2px;
+    background: #b99470;
+    margin: 0 auto;
+    bottom: 0;
+    position: absolute;
+    right: 0;
+    left: 0;
+}
+
+.fs-35 {
+    font-size: 3.5rem !important;
+}
+
+.introduce .swiper-slide {
+    flex-shrink: 0;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition-property: transform;
+}
+
+.article-item .inner-image {
+    position: relative;
+}
+
+.post-date {
+    color: #959595;
+}
+
+.article-item .article-title {
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+
+.article-item .article-title a {
+    color: #181b20;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+.article-item .article-description {
+    margin-bottom: 10px;
+    color: #656a70;
+}
+
+.font-italic {
+    font-style: italic !important;
+}
+
+.text-underline {
+    text-decoration: underline;
+}
+
+.article-item:hover .hover-img a:after {
+    opacity: 1;
+}
+
+.hover-img a:after {
+    position: absolute;
+    display: block;
+    content: " ";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(51, 49, 50, .55);
+    opacity: 0;
+    -webkit-transition: opacity .23s;
+    -o-transition: opacity .23s;
+    transition: opacity .23s;
+}
+
+/* Detail */
+.title-article-detail {
+    font-size: 2.8rem;
+}
+
+.fw-600 {
+    font-weight: 600;
+}
+
+.border-right {
+    border-right: 1px solid #dee2e6 !important;
+}
+
+.introduceDetail .article-content p {
+    color: #181b20;
+}
+@media (min-width: 992px) {
+    .introduceDetail .mb-lg-6, .introduceDetail .my-lg-6 {
+        margin-bottom: 8rem !important;
+    }
+}

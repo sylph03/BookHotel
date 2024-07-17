@@ -43,10 +43,10 @@ const getBookings = () => {
     });
 };
 
-const getBookingByCustomer = () => {
+const getBookingsByCustomer = (customerId) => {
     return new Promise((resolve, reject) => {
-        const sql = 'SELECT * FROM Bookings WHERE customer_id = ?';
-        db.query(sql,[customerId], (err, results) => {
+        const sql = `SELECT * FROM Bookings WHERE customer_id = ?`;
+        db.query(sql, [customerId], (err, results) => {
             if (err) {
                 reject(err);
             } else {
@@ -69,11 +69,45 @@ const getBookingDetails = (bookingId) => {
     });
 };
 
+const getBookingRoomByBookingId = (bookingId) => {
+    return new Promise((resolve, reject) => {
+        const sql = `
+            SELECT 
+                b.booking_id AS booking_id,
+                c.full_name AS full_name,
+                c.phone AS phone,
+                c.email AS email,
+                c.address AS address,
+                b.status AS status,
+                b.total_price AS total_price,
+                bd.quantity AS quantity,
+                r.room_name AS room_name,
+                r.price AS price,
+                r.image_url AS image_url
+            FROM 
+                Bookings b
+                JOIN Customers c ON b.customer_id = c.customer_id
+                JOIN BookingDetails bd ON b.booking_id = bd.booking_id
+                JOIN Rooms r ON bd.room_id = r.room_id
+            WHERE
+                b.booking_id = ?;
+        `;
+
+        db.query(sql, [bookingId], (err, results) => {
+            if (err) {
+                reject(err);
+            } else {
+                resolve(results);
+            }
+        });
+    });
+};
 
 module.exports = {
     addBooking,
     addBookingDetail,
     getBookings,
-    getBookingByCustomer,
-    getBookingDetails
+    getBookingsByCustomer,
+    getBookingDetails,
+    getBookingRoomByBookingId
 };

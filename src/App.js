@@ -13,8 +13,14 @@ import Payment from './screens/Payment/Payment';
 import BookingSuccess from './screens/BookingSuccess/BookingSuccess'
 import AddRoom from './screens/Admin/AddRoom/AddRoom'
 import AccountAddress from './screens/Account/AccoutAddress';
+import Introduce from './screens/Introduce/Introduce'
+import IntroduceDetail from './screens/Introduce/IntroduceDetail';
+import News from './screens/News/News'
 
 import './App.css';
+import NewsDetail from './screens/News/NewsDetail';
+import AccountOrder from './screens/Account/AccountOrder';
+import AccountOrderDetail from './screens/Account/AccountOrderDetail';
 
 function App() {
   return (
@@ -35,6 +41,12 @@ function App() {
           <Route path="/success" element={<BookingSuccess/>} />
           <Route path="/addRoom" element={<AddRoom/>} />
           <Route path="/accountAddress" element={<AccountAddress/>} />
+          <Route path="/introduce" element={<Introduce/>} />
+          <Route path="/introduce/:id" element={<IntroduceDetail />} />
+          <Route path="/news" element={<News/>} />
+          <Route path="/news/:id" element={<NewsDetail />} />
+          <Route path="/accountOrder" element={<AccountOrder/>} />
+          <Route path="/accountOrderDetail/:id" element={<AccountOrderDetail />} />
           {/* Các Route khác tại đây */}
         </Routes>
       </div>
@@ -43,3 +55,7 @@ function App() {
 }
 
 export default App;
+
+
+
+

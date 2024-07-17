@@ -20,6 +20,11 @@ const MyBreadCrumbs = (props) => {
         '/payment' : "Thông tin đơn hàng",
         '/success' : "Đơn hàng thành công",
         '/accountAddress' : "Sổ địa chỉ",
+        '/introduce' : "Giới thiệu",
+        '/accountOrder' : "Quản lý đơn hàng",
+        '/accountOrderDetail' : "Thông tin đơn hàng",
+        ...(props.introduction && { [`/introduce/${props.introduction.id}`]: props.introduction.title }),
+        ...(props.introduction && { [`/news/${props.introduction.id}`]: props.introduction.title }),
         ...(props.room && { [`/rooms/${props.room.room_id}`]: props.room.room_name })
         // Thêm các đường dẫn và nhãn tương ứng khác nếu cần
 

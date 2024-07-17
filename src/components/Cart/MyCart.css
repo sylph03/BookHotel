@@ -61,7 +61,7 @@
 }
 
 
-.cart-table th, .cart-table td {
+.cart-table th, .cart-table td, .list-order-element th, .list-order-element td {
     padding: 0.75rem;
     vertical-align: top;
     border-top: 1px solid #dee2e6;
@@ -71,7 +71,7 @@
     vertical-align: middle;
 }
 
-.cart-table thead th {
+.cart-table thead th, .list-order-element thead th {
     vertical-align: bottom;
     border-bottom: 2px solid #dee2e6;
 }
@@ -218,4 +218,11 @@ small, .small {
     }
 }
 
+@media (max-width: 767px) {
+    table {
+        display: block;
+        overflow-x: scroll;
+        width: 100% !important;
+    }
+}
 

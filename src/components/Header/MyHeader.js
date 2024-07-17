@@ -101,7 +101,7 @@ const MyHeader = () => {
                                                     <i className="fa-solid fa-cart-shopping"></i>
                                                     Giỏ hàng
                                                 </a>
-                                                <a href='#' className='dropdown-item py-3'>
+                                                <a href='/accountOrder' className='dropdown-item py-3'>
                                                     <i className="fa-solid fa-clipboard-list"></i>
                                                     Quản lý đơn hàng
                                                 </a>
@@ -150,7 +150,7 @@ const MyHeader = () => {
                                                 <a className={location.pathname === '/' ? 'active' : ''} href='/'>Trang chủ</a>
                                             </li>
                                             <li>
-                                                <a href='#'>Giới thiệu</a>
+                                                <a className={location.pathname === '/introduce' ? 'active' : ''} href='/introduce'>Giới thiệu</a>
                                             </li>
                                             <li>
                                                 <a className={location.pathname === '/rooms' ? 'active' : ''} href='/rooms'>Phòng</a>
@@ -170,7 +170,7 @@ const MyHeader = () => {
                                                 </ul>
                                             </li>
                                             <li>
-                                                <a href='#'>Tin tức</a>
+                                                <a className={location.pathname === '/news' ? 'active' : ''} href='/news'>Tin tức</a>
                                             </li>
                                             <li>
                                                 <a href='#'>Liên hệ</a>

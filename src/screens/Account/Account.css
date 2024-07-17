@@ -254,4 +254,61 @@
     border-color: #dedede;
 }
 
+.badge-primary {
+    color: #fff;
+    background-color: #007bff;
+}
+.badge-dark {
+    color: #fff;
+    background-color: #343a40;
+}
+.badge-success {
+    color: #fff;
+    background-color: #28a745;
+}
 
+
+/*  */
+@media (min-width: 48em) {
+    .responsive-table tbody th[scope="row"] {
+        background-color: transparent;
+        color: var(--color-main);
+        text-align: left;
+    }
+}
+
+@media (min-width: 48em) {
+    .responsive-table th, .responsive-table td {
+        display: table-cell;
+    }
+}
+.responsive-table th, .responsive-table td {
+    vertical-align: middle;
+}
+.responsive-table tbody, .responsive-table tr, .responsive-table th, .responsive-table td {
+    display: block;
+    text-align: left;
+    white-space: normal;
+}
+.table th, .table td {
+    padding: 0.75rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+}
+th {
+    text-align: inherit;
+    text-align: -webkit-match-parent;
+}
+
+@media (min-width: 48em) {
+    .responsive-table tbody th[scope="row"] a {
+        color: var(--color-main);
+    }
+}
+.responsive-table tbody th[scope="row"] a {
+    color: var(--color-main);
+}
+a {
+    -webkit-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+}

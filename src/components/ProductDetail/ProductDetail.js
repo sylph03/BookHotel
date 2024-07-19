@@ -419,7 +419,7 @@ const ProductDetail = (props) => {
                             </div>
                             <div className="mini-cart-btn">
                                 <a href="/cart" className="btn-cart-info btn-submit">Xem Giỏ Hàng</a>
-                                <a href="#" className="btn-checkout btn-submit">Thanh Toán</a>
+                                <a href="/payment" className="btn-checkout btn-submit">Thanh Toán</a>
                             </div>
                         </div>
                     </div>}

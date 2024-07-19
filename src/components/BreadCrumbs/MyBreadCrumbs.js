@@ -23,6 +23,7 @@ const MyBreadCrumbs = (props) => {
         '/introduce' : "Giới thiệu",
         '/accountOrder' : "Quản lý đơn hàng",
         '/accountOrderDetail' : "Thông tin đơn hàng",
+        '/news' : "Tin tức",
         ...(props.introduction && { [`/introduce/${props.introduction.id}`]: props.introduction.title }),
         ...(props.introduction && { [`/news/${props.introduction.id}`]: props.introduction.title }),
         ...(props.room && { [`/rooms/${props.room.room_id}`]: props.room.room_name })

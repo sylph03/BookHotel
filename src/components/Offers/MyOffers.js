@@ -1,40 +1,29 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+import axios from 'axios';
 import { Container, Row, Col } from 'react-bootstrap';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper/modules';
+import { parse, format, isValid } from 'date-fns'; // Thư viện để xử lý ngày tháng
 
 import 'swiper/css';
 import 'swiper/css/pagination';
 import './MyOffers.css';
 
-const hotelRooms = [
-    {
-        title: 'Chi nhánh khách sạn Miami Beach mới của chúng tôi đã mở cửa!',
-        image: 'https://cdn1872.cdn-template-4s.com/thumbs/articles/tin-tuc-4_thumb_500.jpg',
-        date: '01 tháng 07, 2022',
-        text: 'Khách sạn gồm 311 phòng được chia thành các hạng phòng từ tiêu chuẩn đến cao cấp. Mang cảm hứng từ hình ảnh hoa sen - biểu tượng văn hóa ...'    
-    },
-    {
-        title: 'Tiệc Cocktail Cho Tất Cả Khách Hàng Thứ Bảy Tuần Này',
-        image: 'https://cdn1872.cdn-template-4s.com/thumbs/articles/tin-tuc-3_thumb_500.jpg',
-        date: '02 tháng 07, 2022',
-        text: ' Khách sạn gồm 311 phòng được chia thành các hạng phòng từ tiêu chuẩn đến cao cấp. Mang cảm hứng từ hình ảnh hoa sen - biểu tượng văn hóa ...'    
-    },
-    {
-        title: 'Tháng này chỉ giảm giá 10% vào thứ Sáu',
-        image: 'https://cdn1872.cdn-template-4s.com/thumbs/articles/tin-tuc-2_thumb_500.jpg',
-        date: '03 tháng 07, 2022',
-        text: ' Khách sạn gồm 311 phòng được chia thành các hạng phòng từ tiêu chuẩn đến cao cấp. Mang cảm hứng từ hình ảnh hoa sen - biểu tượng văn hóa ...'    
-    },
-    {
-        title: 'Kỷ niệm 20 năm thành lập khách sạn',
-        image: 'https://cdn1872.cdn-template-4s.com/thumbs/articles/tin-tuc-1_thumb_500.jpg',
-        date: ' tháng 07, 2022',
-        text: ' Khách sạn Five Star Hà Nội kỷ niệm 20 năm thành lập, đánh dấu hai thập kỷ cung cấp dịch vụ đẳng cấp quốc tế, cam kết không ngừng cải thiện chất lượng dịch vụ'    
-    },
-];
-
 const MyOffers = () => {
+    const [dataIntroductions, setDataIntroductions] = useState([]);
+    useEffect(() => {
+        fetchIntroductions();
+    }); 
+
+    const fetchIntroductions = () => {
+        axios.get(`http://localhost:3000/api/introductions`)
+        .then(response => {
+            setDataIntroductions(response.data);
+        })
+        .catch(error => {
+            console.error('Đã xảy ra lỗi khi tìm nạp dữ liệu!', error);
+        });
+    };
     return (
         <div className="offers">
             <Container>
@@ -56,23 +45,24 @@ const MyOffers = () => {
                                     1200: { slidesPerView: 3, spaceBetween: 30 },
                                 }}
                             >
-                                {hotelRooms.map((room, index) => (
+                                {dataIntroductions.map((intro, index) => (
+                                    intro.role === "news" &&
                                     <SwiperSlide key={index}>
                                         <div className="article-item">
                                             <div className="article-image">
                                                 <div className="ratio-3-2">
-                                                    <a href="#" title={room.title}>
-                                                        <img src={room.image} alt={room.title} />
+                                                    <a href={`/news/${intro.id}`} title={intro.title}>
+                                                        <img src={intro.image_intro} alt={intro.title} />
                                                     </a>
                                                 </div>
                                             </div>
                                             <div className="article-content p-4">
-                                                <div className="article-content-date">{room.date}</div>
+                                                <div className="article-content-date">{format(new Date(intro.created_at), 'dd/MM/yyyy')}</div>
                                                 <h4 className="article-content-title">
-                                                    <a href='#' title={room.title}>{room.title}</a>
+                                                    <a href={`/news/${intro.id}`} title={intro.title}>{intro.title}</a>
                                                 </h4>
-                                                <p>{room.text}</p>
-                                                <a href="#">Xem thêm</a>
+                                                <p>{intro.description}</p>
+                                                <a href={`/news/${intro.id}`}>Xem thêm</a>
                                             </div>
                                         </div>
                                     </SwiperSlide>

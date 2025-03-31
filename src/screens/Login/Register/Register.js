@@ -205,12 +205,24 @@ const Register = () => {
         // Gửi request POST lên server
         axios.post('http://localhost:3000/api/customers', customerData)
           .then(response => {
-            console.log(response.data); // Log kết quả từ server (nếu cần)
-            localStorage.setItem('customerUser', JSON.stringify(customerData));
-            toast.success('Đăng ký thành công!');
-            setTimeout(() => {
-              window.location.href='/'; // Điều hướng đến trang chủ sau khi hiển thị toast
-            }, 1000); // Chờ 1 giây trước khi điều hướng
+            const customerId = response.data.customerId; // Giả sử response.data có cấu trúc { customerId: id }
+            // Gửi yêu cầu GET để lấy thông tin chi tiết của người dùng theo id
+            axios.get(`http://localhost:3000/api/customers/newCustomer/${customerId}`)
+              .then(response => {
+                localStorage.setItem('customerUser', JSON.stringify(response.data));
+                
+                // Hiển thị thông báo thành công
+                toast.success('Đăng ký thành công!');
+                
+                // Điều hướng đến trang chủ sau khi hiển thị toast
+                setTimeout(() => {
+                  window.location.href = '/';
+                }, 1000); // Chờ 1 giây trước khi điều hướng
+              })
+              .catch(error => {
+                console.error('Error fetching customer data:', error);
+                toast.error('Lỗi khi lấy thông tin người dùng!');
+              });
           })
           .catch(error => {
             console.error('There was an error!', error);

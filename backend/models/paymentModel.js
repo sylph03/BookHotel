@@ -103,11 +103,70 @@ const getBookingRoomByBookingId = (bookingId) => {
     });
 };
 
+
+const deleteBookingDetailsByBookingId = (bookingId) => {
+    return new Promise((resolve, reject) => {
+        const query = 'DELETE FROM BookingDetails WHERE booking_id = ?';
+        db.query(query, [bookingId], (error, results) => {
+            if (error) {
+                return reject(error);
+            }
+            resolve(results);
+        });
+    });
+};
+
+const deleteBookingById = (bookingId) => {
+    return new Promise((resolve, reject) => {
+        const query = 'DELETE FROM Bookings WHERE booking_id = ?';
+        db.query(query, [bookingId], (error, results) => {
+            if (error) {
+                return reject(error);
+            }
+            resolve(results);
+        });
+    });
+};
+
+const deleteBookingAndDetails = async (bookingId) => {
+    try {
+        // Xóa các chi tiết của đơn hàng
+        await deleteBookingDetailsByBookingId(bookingId);
+        // Xóa đơn hàng
+        await deleteBookingById(bookingId);
+    } catch (error) {
+        throw error;
+    }
+};
+
+const updateBooking = (bookingId, updateData) => {
+    return new Promise((resolve, reject) => {
+        const { start_date, end_date, status } = updateData;
+
+        const sql = `
+            UPDATE Bookings
+            SET start_date = ?, end_date = ?, status = ?
+            WHERE booking_id = ?;
+        `;
+        const values = [start_date, end_date, status, bookingId];
+
+        db.query(sql, values, (err, result) => {
+            if (err) {
+                reject(err);
+            } else {
+                resolve(result);
+            }
+        });
+    });
+};
+
 module.exports = {
     addBooking,
     addBookingDetail,
     getBookings,
     getBookingsByCustomer,
     getBookingDetails,
-    getBookingRoomByBookingId
+    getBookingRoomByBookingId,
+    deleteBookingAndDetails,
+    updateBooking
 };

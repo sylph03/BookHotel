@@ -67,32 +67,46 @@ const NavigateAdmin = () => {
 
   useEffect(() => {
     const customerUserData = localStorage.getItem('customerUser');
+
+    // Kiểm tra nếu `customerUserData` tồn tại và có thể được parse mà không gây lỗi
     if (customerUserData) {
-      const user = JSON.parse(customerUserData);
-      if (user.user_name === 'admin') {
-        const paths = {
-          '/roomManager': '/roomManager',
-          '/addRoom': '/addRoom',
-          '/listRoom': '/listRoom',
-        };
-        const targetPath = paths[location.pathname] || '/roomManager';
-        navigate(targetPath);
-      } else {
-        if (location.pathname === '/roomManager' || location.pathname === '/addRoom') {
+      try {
+        const user = JSON.parse(customerUserData);
+        
+        if (user.user_name === 'admin') {
+          const paths = {
+            '/roomManager': '/roomManager',
+            '/addRoom': '/addRoom',
+            '/orderManager' : '/orderManager',
+            '/listRoom': '/listRoom',
+          };
+          const targetPath = paths[location.pathname] || '/roomManager';
+          navigate(targetPath);
+        } else {
+          if (location.pathname === '/roomManager' || location.pathname === '/addRoom' || location.pathname === '/orderManager') {
+            navigate('/');
+          }
+        }
+      } catch (error) {
+        console.error("Failed to parse JSON from localStorage:", error);
+        // Xử lý lỗi JSON không hợp lệ (có thể xóa dữ liệu sai, thông báo người dùng, v.v.)
+        localStorage.removeItem('customerUser');  // Xóa dữ liệu không hợp lệ
+        if (location.pathname === '/roomManager' || location.pathname === '/addRoom' || location.pathname === '/orderManager') {
           navigate('/');
         }
       }
     } else {
-      if (location.pathname === '/roomManager' || location.pathname === '/addRoom') {
+      if (location.pathname === '/roomManager' || location.pathname === '/addRoom' || location.pathname === '/orderManager') {
         navigate('/');
       }
-    }
+    } 
   }, [navigate, location.pathname]);
 
   return null;
 };
 
 export default NavigateAdmin;
+
 
 
 // import React, { useEffect } from 'react';

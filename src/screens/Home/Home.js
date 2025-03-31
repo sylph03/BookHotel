@@ -31,7 +31,7 @@ const Home = () => {
         <div>
             <MyHeader/>
             <MyHomeMain/>
-            <MyFormBookingHome/>
+            {/* <MyFormBookingHome/> */}
             <MyWelcome/>
             <MyIntroduce/>
             <MyRooms room={dataRooms} title={"Phòng của chúng tôi"} text={"Khách sạn gồm 311 phòng được chia thành các hạng phòng từ tiêu chuẩn đến cao cấp. Mang cảm hứng từ hình ảnh hoa sen - biểu tượng văn hóa Việt Nam"}/>

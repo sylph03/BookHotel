@@ -31,7 +31,7 @@ const MyHomeMain = () => {
                         >
                             <SwiperSlide>
                                 <div className='homeMain-item'>
-                                    <img src='https://khachsan02.web4s.com.vn/templates/fashion03/assets/media/slider/slide2.jpg' alt='Trải nghiệm khách sạn sang trọng'/>
+                                    <img src='https://dynamic-media-cdn.tripadvisor.com/media/photo-o/16/23/18/2b/twin-bed-room.jpg?w=1200&h=-1&s=1' alt='Trải nghiệm khách sạn sang trọng'/>
                                     <div className='homeMain-item-content'>
                                         <h2>Trải nghiệm khách sạn sang trọng</h2>
                                         <p>Khách sạn gồm 311 phòng được chia thành các hạng phòng từ tiêu chuẩn đến cao cấp. Mang cảm hứng từ hình ảnh hoa sen - biểu tượng văn hóa Việt Nam, với quy mô 36 tầng, khách sạn đã trở thành công trình ấn tượng ở địa phương.</p>
@@ -41,7 +41,7 @@ const MyHomeMain = () => {
                             </SwiperSlide>
                             <SwiperSlide>
                                 <div className='homeMain-item'>
-                                    <img src='https://khachsan02.web4s.com.vn/templates/fashion03/assets/media/slider/slide1.jpg' alt='Vị trí thuận tiện'/>
+                                    <img src='https://dynamic-media-cdn.tripadvisor.com/media/photo-o/29/5b/72/a6/suite.jpg?w=1100&h=-1&s=1' alt='Vị trí thuận tiện'/>
                                     <div className='homeMain-item-content'>
                                         <h2>Vị trí thuận tiện</h2>
                                         <p>Khách sạn Five Star tọa lạc trên đường Láng Hạ, Hà Nội,. Khách sạn cách sân bay quốc tế Nội bài khoảng 20 km, cách trung tâm thành phố 5km, rất thuận tiện cho việc di chuyển.</p>

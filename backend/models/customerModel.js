@@ -94,6 +94,19 @@ const getCustomerByUserName = (customerUserName) => {
   });
 };
 
+const getCustomerById = (customerId) => {
+  return new Promise((resolve, reject) => {
+    const sql = 'SELECT * FROM Customers WHERE customer_id = ?';
+    db.query(sql, [customerId], (err, result) => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(result[0]);
+      }
+    });
+  });
+};
+
 // Hàm kiểm tra xem email có tồn tại trong cơ sở dữ liệu hay không
 const emailExists = (email) => {
   return new Promise((resolve, reject) => {
@@ -145,5 +158,6 @@ module.exports = {
   getCustomerByUserName,
   emailExists, 
   phoneExists,
-  userNameExists
+  userNameExists,
+  getCustomerById
 };

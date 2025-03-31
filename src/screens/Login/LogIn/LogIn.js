@@ -123,7 +123,7 @@ const LogIn = () => {
                                 <div className="login-title">Đăng nhập</div>
                                 <form onSubmit={handleSubmit} id="member-login">
                                     <div className="p-5">
-                                        <Row className="mx-n2">
+                                        {/* <Row className="mx-n2">
                                             <Col className="px-2 col-md-6 col-12">
                                                 <span className="fs-4 btn-submit d-flex align-items-center justify-content-center text-center mb-3 rounded">
                                                     <i className="fa-2x  fa-brands fa-google me-3"></i>
@@ -139,7 +139,7 @@ const LogIn = () => {
                                         </Row>
                                         <div className="orAccount">
                                             <span>Hoặc tài khoản</span>
-                                        </div>
+                                        </div> */}
                                         <div className="form-group mb-4">
                                             <input value={userName} onChange={e => setUserName(e.target.value)} type="text" className="form-control required" placeholder="Tài khoản"/>
                                             {errors.userName && <label style={{display: "inline-block"}} className="error invalid-feedback">{errors.userName}</label>}

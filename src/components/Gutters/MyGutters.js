@@ -9,12 +9,12 @@ import './MyGutters.css';
 const customers = [
     {
         name: 'Olivia Simons',
-        img: 'https://khachsan02.web4s.com.vn/templates/fashion03/assets/media/slider/kh_1.jpg',
+        img: 'https://chiemtaimobile.vn/images/companies/1/%E1%BA%A2nh%20Blog/avatar-facebook-dep/top-36-anh-dai-dien-dep-cho-nu/anh-dai-dien-dep-cho-nu-che-mat-anime.jpg?1708401649581',
         text: 'Chúng tôi rất thích kỳ nghỉ tại khách sạn, nhân viên rất thân thiện và chu đáo với mọi nhu cầu của chúng tôi. Chúng tôi rất thích kỳ nghỉ tại khách sạn, nhân viên rất thân thiện và chu đáo với mọi nhu cầu của chúng tôi'
     },
     {
         name: 'Olivia Simons',
-        img: 'https://khachsan02.web4s.com.vn/templates/fashion03/assets/media/slider/kh_2.jpg',
+        img: 'https://techcare.vn/image/hinh-dai-dien-zalo-ngau-cho-nam-om0mx2f.jpg',
         text: 'Chúng tôi rất thích kỳ nghỉ tại khách sạn, nhân viên rất thân thiện và chu đáo với mọi nhu cầu của chúng tôi. Chúng tôi rất thích kỳ nghỉ tại khách sạn, nhân viên rất thân thiện và chu đáo với mọi nhu cầu của chúng tôi'
     }
 ];
@@ -25,7 +25,7 @@ const MyGutters = () => {
             <Row className="align-items-center mx-0">
                 <Col className="px-0 col-lg-6 col-12 d-none d-lg-block">
                     <div className="ratio-3-2">
-                        <img src="https://khachsan02.web4s.com.vn/templates/fashion03/assets/media/background/bg_y_kien_khach_hang.jpg" alt="Ý kiến khách hàng"/>
+                        <img src="https://i.pinimg.com/originals/cd/eb/5a/cdeb5ab1a49b196524bebdc4197831a7.png" alt="Ý kiến khách hàng"/>
                     </div>
                 </Col>
                 <Col className="px-0 col-lg-6 col-12">

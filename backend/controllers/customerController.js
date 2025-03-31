@@ -77,6 +77,21 @@ const getCustomerByUserName = async (req, res) => {
   }
 };
 
+const getCustomerById = async (req, res) => {
+  try {
+    const customerId = req.params.id;
+    const customer = await userModel.getCustomerById(customerId);
+    if (customer) {
+      res.json(customer);
+    } else {
+      res.status(404).json({ message: 'Customer not found' });
+    }
+  } catch (error) {
+    console.error('Error fetching customer:', error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+};
+
 // Xử lý yêu cầu API để thêm khách hàng mới
 const addCustomer = async (req, res) => {
   try {
@@ -114,5 +129,6 @@ module.exports = {
   updateCustomerInfo,
   changePassword,
   getCustomerByUserName,
-  addCustomer
+  addCustomer,
+  getCustomerById
 };

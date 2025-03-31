@@ -20,6 +20,7 @@ const storage = multer.diskStorage({
 
 // Định nghĩa route API để lấy thông tin khách hàng
 router.get('/customers/:userName', customerController.getCustomerByUserName);
+router.get('/customers/newCustomer/:id', customerController.getCustomerById);
 
 // Định nghĩa route API để thêm khách hàng mới
 router.post('/customers', customerController.addCustomer);

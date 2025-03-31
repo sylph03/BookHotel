@@ -44,7 +44,7 @@ const News = () => {
 
     useEffect(() => {
         fetchIntroductions();
-    }, [sortBy, itemsPerPage]); 
+    }); 
 
     const fetchIntroductions = () => {
         axios.get(`http://localhost:3000/api/introductions?sortBy=${sortBy}&limit=${itemsPerPage}`)

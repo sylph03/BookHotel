@@ -19,7 +19,6 @@ const MyHeader = () => {
         if (customerUserData) {
             setCustomerData(JSON.parse(customerUserData));
         }
-        console.log(localStorage);
     }, []);
 
 
@@ -75,11 +74,11 @@ const MyHeader = () => {
                                 <div className='header-top-left-box'>
                                     <div className='header-top-left-item'>
                                         <i className="fa-solid fa-phone"></i>
-                                        <a href='#'>Hotline: 1900 6680</a>
+                                        <a href='#'>Hotline: 1900 121234</a>
                                     </div>
                                     <div className='header-top-left-item ps-5'>
                                     <i className="fa-solid fa-envelope"></i>
-                                        <a href='#'>Email: contact@sm4s.vn</a>
+                                        <a href='#'>Email: email123@gmail.com</a>
                                     </div>
                                 </div>
                             </div>
@@ -137,7 +136,7 @@ const MyHeader = () => {
                                 <div className='header-bottom-left-box'>
                                     <div className='header-bottom-left-logo'>
                                         <a href='/'>
-                                            <img src='https://cdn1872.cdn-template-4s.com/media/logo/logo_1.png' alt='CÔNG TY TNHH PHẦN MỀM NHÂN HÒA'/>
+                                            <img src='http://localhost:3001/logo.png' alt='CÔNG TY TNHH PHẦN MỀM NHÂN HÒA'/>
                                         </a>
                                     </div>
                                 </div>
@@ -155,7 +154,7 @@ const MyHeader = () => {
                                             <li>
                                                 <a className={location.pathname === '/rooms' ? 'active' : ''} href='/rooms'>Phòng</a>
                                             </li>
-                                            <li className='position-relative has-child'> 
+                                            {/* <li className='position-relative has-child'> 
                                                 <a href='#'>
                                                     Thư viện
                                                     <i className="fa-solid fa-chevron-down"></i>
@@ -168,7 +167,7 @@ const MyHeader = () => {
                                                         <a className='menu-link' href='#'>Ảnh</a>
                                                     </li>
                                                 </ul>
-                                            </li>
+                                            </li> */}
                                             <li>
                                                 <a className={location.pathname === '/news' ? 'active' : ''} href='/news'>Tin tức</a>
                                             </li>

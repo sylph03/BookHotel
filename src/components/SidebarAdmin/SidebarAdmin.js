@@ -103,17 +103,17 @@ const SidebarAdmin = () => {
                         <span className="hide-menu">Đơn hàng</span>
                     </li>
                     <li className="sidebar-item">
-                        <a className="sidebar-link" href="#">
+                        <a className="sidebar-link" href="/orderManager">
                             <i className="fa-regular fa-clipboard"></i>
                             <span className="hide-menu">Danh sách đơn hàng</span>
                         </a>
                     </li>
-                    <li className="sidebar-item">
+                    {/* <li className="sidebar-item">
                         <a className="sidebar-link" href="#">
                             <i className="fa-regular fa-credit-card"></i>
                             <span className="hide-menu">Thanh toán</span>
                         </a>
-                    </li>
+                    </li> */}
                     {/*  */}
                     <li className="nav-small-cap">
                         <span className="hide-menu">Thông báo</span>
@@ -124,12 +124,12 @@ const SidebarAdmin = () => {
                             <span className="hide-menu">Hộp thư đến</span>
                         </a>
                     </li>
-                    <li className="sidebar-item">
+                    {/* <li className="sidebar-item">
                         <a className="sidebar-link" href="#">
                             <i className="fa-regular fa-comment"></i>
                             <span className="hide-menu">Tin nhắn</span>
                         </a>
-                    </li>
+                    </li> */}
                 </ul>
             </div>
         </div>

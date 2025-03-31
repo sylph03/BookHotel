@@ -8,7 +8,7 @@ const MyBanner = () => {
         <div className="banner">
             <div className="banner-box">
                 <div className="banner-content">
-                    <img src="https://khachsan02.web4s.com.vn/templates/fashion03/assets/media/banner/banner_1_1.jpg" alt="Đặt trực tuyến ngay hôm nay và mong chờ một kỳ nghỉ thư giãn với chúng tôi"/>
+                    <img src="https://i.pinimg.com/originals/1c/ee/19/1cee1958f5db10dd60a695b8177cf3ed.jpg" alt="Đặt trực tuyến ngay hôm nay và mong chờ một kỳ nghỉ thư giãn với chúng tôi"/>
                     <div className="banner-content_info">
                         <Container className="px-4">
                             <h3>Đặt trực tuyến ngay hôm nay và mong chờ một kỳ nghỉ thư giãn với chúng tôi</h3>

@@ -21,6 +21,7 @@ import './App.css';
 import NewsDetail from './screens/News/NewsDetail';
 import AccountOrder from './screens/Account/AccountOrder';
 import AccountOrderDetail from './screens/Account/AccountOrderDetail';
+import OrderManager from './screens/Admin/OrderManager/OrderManager'
 
 function App() {
   return (
@@ -47,6 +48,7 @@ function App() {
           <Route path="/news/:id" element={<NewsDetail />} />
           <Route path="/accountOrder" element={<AccountOrder/>} />
           <Route path="/accountOrderDetail/:id" element={<AccountOrderDetail />} />
+          <Route path="/orderManager" element={<OrderManager />} />
           {/* Các Route khác tại đây */}
         </Routes>
       </div>

@@ -10,7 +10,7 @@ const TopbarAdmin = () => {
                         <div className="brand-logo d-flex align-items-center justify-content-between">
                             <a href="/admin" className="text-nowrap logo-img d-flex align-items-center gap-2">
                                 <span className="logo-text">
-                                    <img width={"228px"} src="https://cdn1872.cdn-template-4s.com/media/logo/logo_1.png" alt="" className="dark-logo ps-2"/>
+                                    <img width={"228px"} src="http://localhost:3001/logo.png" alt="" className="dark-logo ps-2"/>
                                 </span>
                             </a>
                         </div>
@@ -18,9 +18,9 @@ const TopbarAdmin = () => {
                     <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
                         <div className="d-flex align-items-center justify-content-between py-2 py-lg-0">
                             <ul className="navbar-nav gap-2 flex-row ms-auto align-items-center justify-content-center">
-                                <li className="nav-item hover-dd dropdown nav-icon-hover-bg rounded-circle d-none d-lg-block">
+                                <li className="nav-item hover-dd dropdown nav-icon-hover-bg ">
                                     <a className="nav-lik nav-icon-hover waves-effect waves-dark" href="#">
-                                        <i className="fa-regular fa-bell"></i>
+                                        <i className="color-highlight fa-solid fa-bell"></i>
                                         <div className="notify">
                                             <span className="heartbit"></span>
                                             <span className="point"></span>

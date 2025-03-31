@@ -42,15 +42,15 @@ const MyFooter = () => {
                         <h5 className="footer-title">Liên hệ</h5>
                         <p className="footer-lienhe">
                             <i className="fa-solid fa-location-dot"></i>
-                            Tầng 4, Tòa nhà số 97 - 99 Láng Hạ, Đống Đa, Hà Nội (Tòa nhà Petrowaco)
+                            Tầng A, Tòa nhà số B Hà Nội
                         </p>
                         <p className="footer-lienhe">
                             <i className="fa-solid fa-phone"></i>
-                            1900 6680 - 0901191616
+                            1900 121234 - 0989662289
                         </p>
                         <p className="footer-lienhe">
                             <i className="fa-solid fa-envelope"></i>
-                            contact@sm4s.vn
+                            email@gmail.com
                         </p>
                     </Col>
                     <Col className="px-4 col-md-4 col-12">
